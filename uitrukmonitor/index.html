@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Uitrukmonitor Zeist–De Bilt</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+</body>
+</html>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: werkbank — kaart links als hoofdvlak, live P2000-strook rechts, analyses eronder */
+:root{
+  --bg:#eef0ec; --surface:#f8f9f6; --ink:#18202a; --ink-2:#4a5562; --ink-3:#7a8490;
+  --line:#d8dcd5; --grid:#e3e6e0; --accent:#b8321f; --accent-soft:#f3dcd6;
+  --p1:#c8321f; --p2:#c48a00; --p3:#2f6fb0; --halo:#dfe3dc; --mapbg:#f2f4ef;
+  --seq0:#f6e3de; --seq1:#e9a99c; --seq2:#d26a56; --seq3:#a8281a;
+  --f-display:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;
+  --f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#10151b; --surface:#151a20; --ink:#e7eaee; --ink-2:#a9b2bc; --ink-3:#7c8691;
+  --line:#28303a; --grid:#1d242c; --accent:#e8604c; --accent-soft:#3a1d18;
+  --p1:#c83424; --p2:#bb8a22; --p3:#5a95d9; --halo:#1f262e; --mapbg:#131920;
+  --seq0:#3a1f1b; --seq1:#6e2c22; --seq2:#b2412e; --seq3:#f07a62; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#10151b; --surface:#151a20; --ink:#e7eaee; --ink-2:#a9b2bc; --ink-3:#7c8691;
+  --line:#28303a; --grid:#1d242c; --accent:#e8604c; --accent-soft:#3a1d18;
+  --p1:#c83424; --p2:#bb8a22; --p3:#5a95d9; --halo:#1f262e; --mapbg:#131920;
+  --seq0:#3a1f1b; --seq1:#6e2c22; --seq2:#b2412e; --seq3:#f07a62; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:14px;line-height:1.45;padding-inline:16px;padding-block:20px 40px}
+.wrap{max-width:1280px;margin:0 auto;display:grid;gap:18px}
+h1,h2,h3{margin:0;font-family:var(--f-display);font-weight:700;letter-spacing:.01em;text-wrap:balance}
+h1{font-size:clamp(28px,4vw,40px);line-height:1}
+h2{font-size:20px;text-transform:uppercase;letter-spacing:.06em}
+.mono{font-family:var(--f-mono)}
+.muted{color:var(--ink-2)}
+.tnum{font-variant-numeric:tabular-nums}
+
+header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px}
+.eyebrow{font-family:var(--f-mono);font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-3);margin-bottom:6px}
+.live{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-mono);font-size:12px;color:var(--ink-2)}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 0 var(--accent);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--accent) 60%,transparent)}70%{box-shadow:0 0 0 9px transparent}100%{box-shadow:0 0 0 0 transparent}}
+@media (prefers-reduced-motion:reduce){.dot{animation:none}}
+
+.notice{border:1px dashed var(--accent);background:var(--accent-soft);color:var(--ink);padding:10px 14px;border-radius:6px;font-size:13px}
+.notice b{font-weight:600}
+
+.filters{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center}
+.fgroup{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.flabel{font-family:var(--f-mono);font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-3);margin-right:2px}
+.chip{font:inherit;font-size:13px;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:5px 11px;border-radius:999px;cursor:pointer;display:inline-flex;gap:6px;align-items:center}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chip:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.sw{width:9px;height:9px;border-radius:50%;display:inline-block}
+select{font:inherit;font-size:13px;padding:5px 8px;border-radius:6px;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.kpi{background:var(--surface);padding:14px 16px;display:grid;gap:2px;align-content:start}
+.kpi .k{font-family:var(--f-mono);font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-3)}
+.kpi .v{font-family:var(--f-display);font-size:38px;font-weight:700;line-height:1.05;font-variant-numeric:tabular-nums}
+.kpi .s{font-size:12px;color:var(--ink-2)}
+.kpi.na .v{color:var(--ink-3);font-size:24px;padding-block:7px}
+
+.main{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:18px;align-items:start}
+@media (max-width:960px){.main{grid-template-columns:minmax(0,1fr)}}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:14px 16px;min-width:0}
+.phead{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:10px}
+.phead p{margin:0;font-size:12px;color:var(--ink-2)}
+
+#map{width:100%;height:auto;display:block;background:var(--mapbg);border-radius:6px;touch-action:manipulation}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12px;color:var(--ink-2);margin-top:8px;align-items:center}
+.legend span{display:inline-flex;gap:6px;align-items:center}
+.ramp{display:inline-flex;gap:2px}.ramp i{width:16px;height:10px;display:block;border-radius:2px}
+
+.feed{display:grid;gap:0;max-height:640px;overflow-y:auto;margin:0 -16px;padding:0 16px}
+.item{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 10px;padding:10px 0;border-top:1px solid var(--line);cursor:pointer}
+.item:first-child{border-top:0}
+.item:hover .what,.item:focus-visible .what{text-decoration:underline}
+.item.new{animation:flash 2.4s ease-out}
+@keyframes flash{from{background:var(--accent-soft)}to{background:transparent}}
+.pill{font-family:var(--f-mono);font-size:11px;font-weight:500;padding:2px 6px;border-radius:4px;color:#fff;align-self:start;margin-top:2px}
+.pill.p1{background:var(--p1)}.pill.p2{background:var(--p2)}.pill.p3{background:var(--p3)}
+.what{font-weight:600}
+.meta{font-size:12px;color:var(--ink-2)}
+.raw{grid-column:2;font-family:var(--f-mono);font-size:11px;color:var(--ink-3);overflow-wrap:anywhere}
+
+.charts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+@media (max-width:1100px){.charts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:700px){.charts{grid-template-columns:minmax(0,1fr)}}
+svg text{fill:var(--ink-2);font-family:var(--f-body);font-size:11px}
+svg .axis{stroke:var(--line)} svg .gl{stroke:var(--grid)}
+
+.tip{position:fixed;pointer-events:none;background:var(--ink);color:var(--bg);font-size:12px;padding:6px 9px;border-radius:5px;z-index:10;max-width:260px;line-height:1.35}
+.tip b{font-weight:600}
+
+.explain{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.explain h3{font-size:17px;margin-bottom:4px}
+.explain p{margin:0;color:var(--ink-2);max-width:62ch}
+footer{font-size:12px;color:var(--ink-3)}
+:root{color-scheme:light}
+body{margin:0}
+#map{width:100%;height:clamp(380px,62vh,680px);border-radius:6px;background:var(--mapbg);z-index:0}
+.leaflet-container{font-family:var(--f-body)}
+.leaflet-popup-content{font-size:13px;line-height:1.4;margin:10px 12px}
+.leaflet-popup-content b{font-weight:600}
+.lbl{background:transparent;border:0;box-shadow:none;font-family:var(--f-display);font-weight:600;font-size:15px;color:#18202a;text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 3px #fff}
+.lbl::before{display:none}
+.fresh-ring{border-radius:50%;border:3px solid #c8321f;animation:ring 1.6s ease-out 5}
+@keyframes ring{from{transform:scale(.4);opacity:1}to{transform:scale(1.6);opacity:0}}
+@media (prefers-reduced-motion:reduce){.fresh-ring{animation:none}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <div>
+      <div class="eyebrow">Brandweer · Veiligheidsregio Utrecht · P2000</div>
+      <h1>Uitrukmonitor Zeist–De Bilt</h1>
+    </div>
+    <div class="live"><span class="dot" aria-hidden="true"></span><span id="liveTxt">Live (demo) · ververst elke 40 s</span></div>
+  </header>
+
+  <div class="notice" id="notice"><b>Voorbeelddata.</b> Er is nog geen bestand <span class="mono">data/meldingen.json</span> gevonden, dus deze pagina toont gegenereerde meldingen. Zodra de verzamelaar draait, verschijnen hier de echte meldingen.</div>
+
+  <div class="filters" role="group" aria-label="Filters">
+    <div class="fgroup"><span class="flabel">Gemeente</span>
+      <button class="chip" id="g-all" data-g="all" aria-pressed="true">Beide</button>
+      <button class="chip" id="g-zeist" data-g="Zeist" aria-pressed="false">Zeist</button>
+      <button class="chip" id="g-bilt" data-g="De Bilt" aria-pressed="false">De Bilt</button>
+    </div>
+    <div class="fgroup"><span class="flabel">Prio</span>
+      <button class="chip" id="p-1" data-p="1" aria-pressed="true"><span class="sw" style="background:var(--p1)"></span>P1</button>
+      <button class="chip" id="p-2" data-p="2" aria-pressed="true"><span class="sw" style="background:var(--p2)"></span>P2</button>
+      <button class="chip" id="p-3" data-p="3" aria-pressed="true"><span class="sw" style="background:var(--p3)"></span>P3</button>
+    </div>
+    <div class="fgroup"><label class="flabel" for="typeSel">Soort</label>
+      <select id="typeSel"><option value="all">Alle soorten</option></select>
+    </div>
+  </div>
+
+  <section class="kpis" aria-label="Kerncijfers">
+    <div class="kpi"><span class="k">Sinds 1 oktober</span><span class="v" id="k-tot">–</span><span class="s" id="k-tot-s">meldingen</span></div>
+    <div class="kpi"><span class="k">Vandaag</span><span class="v" id="k-today">–</span><span class="s" id="k-today-s"></span></div>
+    <div class="kpi"><span class="k">Aandeel prio 1</span><span class="v" id="k-p1">–</span><span class="s">met spoed (optische en geluidssignalen)</span></div>
+    <div class="kpi"><span class="k">Meest voorkomend</span><span class="v" id="k-top" style="font-size:24px;padding-block:7px">–</span><span class="s" id="k-top-s"></span></div>
+    <div class="kpi na"><span class="k">Opkomsttijd</span><span class="v">Niet in P2000</span><span class="s">Alleen jaarcijfers via de Veiligheidsregio</span></div>
+  </section>
+
+  <div class="main">
+    <section class="panel" aria-label="Kaart">
+      <div class="phead">
+        <h2>Waar ging de brandweer heen?</h2>
+        <div class="fgroup">
+          <button class="chip" id="m-pts" data-m="pts" aria-pressed="true">Meldingen</button>
+          <button class="chip" id="m-grid" data-m="grid" aria-pressed="false">Vakken van 500 m</button>
+        </div>
+      </div>
+      <div id="map" role="region" aria-label="Kaart van Zeist en De Bilt met meldingslocaties"></div>
+      <div class="legend" id="legend"></div>
+    </section>
+
+    <section class="panel" aria-label="Live meldingen">
+      <div class="phead"><h2>Live P2000</h2><p id="feedCount"></p></div>
+      <div class="feed" id="feed"></div>
+    </section>
+  </div>
+
+  <div class="charts">
+    <section class="panel"><div class="phead"><h2>Per dag</h2><p>gestapeld naar prio</p></div><svg id="c-day"></svg></section>
+    <section class="panel"><div class="phead"><h2>Soort melding</h2><p>aantal</p></div><svg id="c-type"></svg></section>
+    <section class="panel"><div class="phead"><h2>Tijdstip</h2><p>meldingen per uur van de dag</p></div><svg id="c-hour"></svg></section>
+  </div>
+
+  <section class="panel explain" aria-label="Uitleg">
+    <div><h3>Waar komt de data vandaan?</h3><p>Brandweerploegen worden gealarmeerd via P2000, een netwerk voor piepers. Een bericht bevat prio, soort melding, straat, plaats en de capcodes van de gealarmeerde eenheden. We filteren op de kazernes en plaatsen in Zeist en De Bilt.</p></div>
+    <div><h3>Waarom geen reactietijd?</h3><p>P2000 laat alleen het moment van alarmeren zien. Uitrukken en aankomst worden gemeld via C2000-statusberichten, en die zijn versleuteld. De officiële opkomsttijden publiceert de Veiligheidsregio Utrecht per jaar.</p></div>
+    <div><h3>Privacy</h3><p>We tonen meldingen op straatniveau, zonder huisnummer. Met de weergave in vakken van 500 m zie je patronen zonder dat één adres herkenbaar is.</p></div>
+  </section>
+
+  <footer>Ondergrond: BRT Achtergrondkaart en Luchtfoto van PDOK (Kadaster), of OpenStreetMap. Meldingen op straatniveau, zonder huisnummer.</footer>
+</div>
+<div class="tip" id="tip" hidden></div>
+
+<script>
+(()=>{
+// ---------- geografie (WGS84, benaderd) ----------
+const PLACES=[
+  {n:"Zeist",g:"Zeist",lat:52.0895,lon:5.2330,w:30,s:.010,streets:["Slotlaan","Utrechtseweg","Laan van Vollenhove","Driebergseweg","Steynlaan","Kroostweg","Oranje Nassaulaan","Jagerlaan","Prins Hendriklaan","Montaubanstraat"]},
+  {n:"Den Dolder",g:"Zeist",lat:52.1395,lon:5.2470,w:6,s:.005,streets:["Dolderseweg","Soestdijkseweg","Paduaweg"]},
+  {n:"Huis ter Heide",g:"Zeist",lat:52.1135,lon:5.2440,w:5,s:.005,streets:["Amersfoortseweg","Woudenbergseweg","Hoog Kanje"]},
+  {n:"Austerlitz",g:"Zeist",lat:52.0815,lon:5.3120,w:2,s:.004,streets:["Woudenbergseweg","Austerlitzseweg"]},
+  {n:"Bosch en Duin",g:"Zeist",lat:52.1190,lon:5.2290,w:2,s:.004,streets:["Dolderseweg","Holle Bolleweg"]},
+  {n:"Bilthoven",g:"De Bilt",lat:52.1290,lon:5.2030,w:16,s:.008,streets:["Soestdijkseweg-Zuid","Soestdijkseweg-Noord","Julianalaan","Leijenseweg","Planetenbaan","Kees Boekelaan"]},
+  {n:"De Bilt",g:"De Bilt",lat:52.1100,lon:5.1800,w:9,s:.006,streets:["Utrechtseweg","Hessenweg","Looydijk","Dorpsstraat"]},
+  {n:"Maartensdijk",g:"De Bilt",lat:52.1555,lon:5.1720,w:5,s:.005,streets:["Dorpsweg","Nachtegaallaan","Tolakkerweg"]},
+  {n:"Groenekan",g:"De Bilt",lat:52.1380,lon:5.1560,w:3,s:.004,streets:["Groenekanseweg","Koningin Wilhelminaweg"]},
+  {n:"Westbroek",g:"De Bilt",lat:52.1670,lon:5.1300,w:2,s:.004,streets:["Kerkdijk","Achterweteringseweg"]},
+  {n:"Hollandsche Rading",g:"De Bilt",lat:52.1770,lon:5.1780,w:2,s:.004,streets:["Tolakkerweg","Vuurse Dreef"]},
+];
+const TYPES=[
+  {t:"Automatisch brandalarm (OMS)",w:26,p:[1,1,1,1,2],c:"OMS"},
+  {t:"Stormschade / boom op weg",w:9,p:[2,2,2,3],c:"Stormschade"},
+  {t:"Hulpverlening algemeen",w:9,p:[1,2,2,3],c:"Hulpverlening"},
+  {t:"Buitenbrand",w:8,p:[1,1,2],c:"Buitenbrand"},
+  {t:"Brand container / afval",w:8,p:[1,2,2],c:"Brand container"},
+  {t:"Ongeval wegvervoer",w:7,p:[1,1,1,2],c:"Ongeval wegvervoer"},
+  {t:"Brand woning",w:6,p:[1],c:"Brand woning"},
+  {t:"Liftopsluiting",w:5,p:[2,2,3],c:"Liftopsluiting"},
+  {t:"Dier in problemen",w:5,p:[2,3,3],c:"Dier in problemen"},
+  {t:"Gaslucht / gaslek",w:5,p:[1,1,2],c:"Gaslucht"},
+  {t:"CO-melding",w:4,p:[1,1],c:"CO-melding"},
+  {t:"Wateroverlast",w:4,p:[2,3],c:"Wateroverlast"},
+];
+const BOUNDS={lonMin:5.105,lonMax:5.335,latMin:52.062,latMax:52.192};
+const KX=Math.cos(52.12*Math.PI/180), W=1000;
+const SX=W/((BOUNDS.lonMax-BOUNDS.lonMin)*KX), H=Math.round((BOUNDS.latMax-BOUNDS.latMin)*SX);
+const px=lon=>(lon-BOUNDS.lonMin)*KX*SX, py=lat=>(BOUNDS.latMax-lat)*SX;
+
+// ---------- deterministische voorbeelddata ----------
+let seed=20261001; const rnd=()=>{seed=(seed*1664525+1013904223)>>>0;return seed/4294967296};
+const pick=(arr,wk="w")=>{const tot=arr.reduce((a,b)=>a+b[wk],0);let r=rnd()*tot;for(const x of arr){r-=x[wk];if(r<=0)return x}return arr[arr.length-1]};
+const gauss=()=>{let u=0,v=0;while(!u)u=rnd();while(!v)v=rnd();return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v)};
+const HOURW=[2,1.5,1,1,1,1.5,3,5,6,6,6,6,6,6,6,6,7,8,8,7,6,5,4,3];
+const pickHour=()=>{const tot=HOURW.reduce((a,b)=>a+b);let r=rnd()*tot;for(let h=0;h<24;h++){r-=HOURW[h];if(r<=0)return h}return 23};
+const capFor=g=>g==="Zeist"?["1515101","1515199"]:["1514101","1514199"]; // fictief
+function make(time,ov){
+  const pl=ov?.pl||pick(PLACES), ty=ov?.ty||pick(TYPES);
+  const prio=ty.p[Math.floor(rnd()*ty.p.length)];
+  const st=pl.streets[Math.floor(rnd()*pl.streets.length)];
+  const lat=pl.lat+gauss()*pl.s*.8, lon=pl.lon+gauss()*pl.s*1.3;
+  const hh=String(time.getHours()).padStart(2,"0"),mm=String(time.getMinutes()).padStart(2,"0"),ss=String(time.getSeconds()).padStart(2,"0");
+  const raw=`P ${prio} BDH-0${1+Math.floor(rnd()*3)} ${ty.c} ${st} ${pl.n} ${hh}${mm}${ss}`;
+  return {id:Math.random().toString(36).slice(2),time,place:pl.n,g:pl.g,type:ty.t,prio,street:st,lat,lon,raw,caps:capFor(pl.g)};
+}
+const now=new Date(), start=new Date(2026,9,1,0,0,0);
+let DATA=[];
+for(let d=new Date(start);d<=now;d.setDate(d.getDate()+1)){
+  const n=3+Math.floor(rnd()*5)+(d.getDate()===4?5:0);
+  for(let i=0;i<n;i++){const t=new Date(d);t.setHours(pickHour(),Math.floor(rnd()*60),Math.floor(rnd()*60));if(t<=now)DATA.push(make(t))}
+}
+DATA.sort((a,b)=>b.time-a.time);
+
+// ---------- staat & filters ----------
+const S={g:"all",p:new Set([1,2,3]),type:"all",mode:"pts",fresh:null};
+const sel=document.getElementById("typeSel");
+TYPES.forEach(t=>{const o=document.createElement("option");o.value=t.t;o.textContent=t.t;sel.appendChild(o)});
+const filtered=()=>DATA.filter(d=>(S.g==="all"||d.g===S.g)&&S.p.has(d.prio)&&(S.type==="all"||d.type===S.type));
+document.querySelectorAll("[data-g]").forEach(b=>b.onclick=()=>{S.g=b.dataset.g;document.querySelectorAll("[data-g]").forEach(x=>x.setAttribute("aria-pressed",x===b));render()});
+document.querySelectorAll("[data-p]").forEach(b=>b.onclick=()=>{const p=+b.dataset.p;if(S.p.has(p)&&S.p.size>1)S.p.delete(p);else S.p.add(p);b.setAttribute("aria-pressed",S.p.has(p));render()});
+document.querySelectorAll("[data-m]").forEach(b=>b.onclick=()=>{S.mode=b.dataset.m;document.querySelectorAll("[data-m]").forEach(x=>x.setAttribute("aria-pressed",x===b));renderMap(filtered())});
+sel.onchange=()=>{S.type=sel.value;render()};
+
+// ---------- hulpmiddelen ----------
+const NS="http://www.w3.org/2000/svg";
+const el=(tag,attrs,parent)=>{const e=document.createElementNS(NS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);parent&&parent.appendChild(e);return e};
+const tip=document.getElementById("tip");
+const showTip=(ev,html)=>{tip.innerHTML=html;tip.hidden=false;const r=tip.getBoundingClientRect();let x=ev.clientX+14,y=ev.clientY+14;if(x+r.width>innerWidth-8)x=ev.clientX-r.width-14;if(y+r.height>innerHeight-8)y=ev.clientY-r.height-14;tip.style.left=x+"px";tip.style.top=y+"px"};
+const hideTip=()=>tip.hidden=true;
+const fmtT=t=>t.toLocaleTimeString("nl-NL",{hour:"2-digit",minute:"2-digit"});
+const fmtD=t=>t.toLocaleDateString("nl-NL",{weekday:"short",day:"numeric",month:"short"});
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const tipFor=d=>`<b>${esc(d.type)}</b><br>${esc(d.street)}, ${esc(d.place)}<br>${fmtD(d.time)} · ${fmtT(d.time)} · Prio ${d.prio}`;
+
+// ---------- kaart (Leaflet) ----------
+const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const lmap=L.map("map",{zoomControl:true,scrollWheelZoom:false}).fitBounds([[52.065,5.11],[52.19,5.33]]);
+lmap.on("focus click",()=>lmap.scrollWheelZoom.enable());
+const PDOK="https://service.pdok.nl/brt/achtergrondkaart/wmts/v2_0/";
+const KAD='Kaartgegevens &copy; <a href="https://www.kadaster.nl">Kadaster</a> / PDOK';
+const bases={
+  "Topografisch (PDOK)":L.tileLayer(PDOK+"standaard/EPSG:3857/{z}/{x}/{y}.png",{maxZoom:19,attribution:KAD}),
+  "Grijs (PDOK)":L.tileLayer(PDOK+"grijs/EPSG:3857/{z}/{x}/{y}.png",{maxZoom:19,attribution:KAD}),
+  "Luchtfoto (PDOK)":L.tileLayer("https://service.pdok.nl/hwh/luchtfotorgb/wmts/v1_0/Actueel_ortho25/EPSG:3857/{z}/{x}/{y}.jpeg",{maxZoom:19,attribution:"Luchtfoto &copy; Beeldmateriaal Nederland / PDOK"}),
+  "OpenStreetMap":L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>-bijdragers'}),
+};
+bases["Topografisch (PDOK)"].addTo(lmap);
+L.control.layers(bases,null,{position:"topright"}).addTo(lmap);
+L.control.scale({imperial:false}).addTo(lmap);
+const dataLayer=L.layerGroup().addTo(lmap);
+const markerById={};
+function renderMap(rows){
+  dataLayer.clearLayers();
+  for(const k in markerById)delete markerById[k];
+  const col={1:css("--p1"),2:css("--p2"),3:css("--p3")};
+  if(S.mode==="grid"){
+    const cw=.0073,ch=.0045,cells={};
+    rows.forEach(d=>{const i=Math.floor((d.lon-BOUNDS.lonMin)/cw),j=Math.floor((d.lat-BOUNDS.latMin)/ch),k=i+","+j;(cells[k]=cells[k]||{i,j,n:0,rows:[]}).n++;cells[k].rows.push(d)});
+    const max=Math.max(1,...Object.values(cells).map(c=>c.n));
+    const seq=[css("--seq0"),css("--seq1"),css("--seq2"),css("--seq3")];
+    Object.values(cells).forEach(c=>{
+      const lvl=Math.min(3,Math.floor((c.n/max)*4-.001));
+      const sw=[BOUNDS.latMin+c.j*ch,BOUNDS.lonMin+c.i*cw],ne=[sw[0]+ch,sw[1]+cw];
+      L.rectangle([sw,ne],{color:"#fff",weight:1,fillColor:seq[lvl],fillOpacity:.78}).addTo(dataLayer)
+        .bindTooltip(`<b>${c.n} melding${c.n>1?"en":""}</b> in dit vak<br>${esc([...new Set(c.rows.map(d=>d.place))].join(", "))}`,{sticky:true});
+    });
+  }else{
+    [...rows].sort((a,b)=>b.prio-a.prio).forEach(d=>{
+      const m=L.circleMarker([d.lat,d.lon],{radius:{1:8,2:6.5,3:5.5}[d.prio],color:"#fff",weight:2,fillColor:col[d.prio],fillOpacity:.92}).addTo(dataLayer);
+      m.bindTooltip(tipFor(d),{direction:"top",offset:[0,-6]});
+      m.on("click",()=>{const it=document.querySelector(`[data-id="${d.id}"]`);if(it){it.scrollIntoView({block:"nearest",behavior:"smooth"});it.focus()}});
+      markerById[d.id]=m;
+      if(d.id===S.fresh){L.marker([d.lat,d.lon],{interactive:false,icon:L.divIcon({className:"",html:'<div class="fresh-ring" style="width:44px;height:44px;border-color:'+col[d.prio]+'"></div>',iconSize:[44,44]})}).addTo(dataLayer)}
+    });
+  }
+  const lg=document.getElementById("legend");
+  lg.innerHTML=S.mode==="grid"
+    ?`<span>Minder</span><span class="ramp"><i style="background:var(--seq0)"></i><i style="background:var(--seq1)"></i><i style="background:var(--seq2)"></i><i style="background:var(--seq3)"></i></span><span>Meer meldingen per vak van 500 × 500 m</span>`
+    :`<span><span class="sw" style="background:var(--p1);width:12px;height:12px"></span>Prio 1 · spoed</span><span><span class="sw" style="background:var(--p2);width:10px;height:10px"></span>Prio 2 · gepaste spoed</span><span><span class="sw" style="background:var(--p3);width:9px;height:9px"></span>Prio 3 · geen spoed</span><span>· ${rows.length} meldingen, op straatniveau</span>`;
+}
+// ---------- feed ----------
+function renderFeed(rows){
+  const f=document.getElementById("feed");
+  document.getElementById("feedCount").textContent=`${rows.length} in selectie`;
+  f.innerHTML=rows.slice(0,80).map(d=>`<div class="item${d.id===S.fresh?" new":""}" tabindex="0" data-id="${d.id}">
+    <span class="pill p${d.prio}">P${d.prio}</span>
+    <div><div class="what">${esc(d.type)}</div><div class="meta tnum">${esc(d.street)}, ${esc(d.place)} · ${fmtD(d.time)} ${fmtT(d.time)}</div></div>
+    <div class="raw">${esc(d.raw)} · ${d.caps.join(" ")}</div></div>`).join("");
+}
+
+// ---------- grafieken ----------
+function barsDay(rows){
+  const svg=document.getElementById("c-day"),w=360,h=200,m={l:28,r:6,t:8,b:26};svg.setAttribute("viewBox",`0 0 ${w} ${h}`);svg.innerHTML="";
+  const days=[];for(let d=new Date(start);d<=now;d.setDate(d.getDate()+1))days.push(new Date(d));
+  const cnt=days.map(d=>{const k=d.toDateString(),r=rows.filter(x=>x.time.toDateString()===k);return {d,p:[1,2,3].map(p=>r.filter(x=>x.prio===p).length),n:r.length}});
+  const max=Math.max(4,...cnt.map(c=>c.n)),step=max>10?5:2,top=Math.ceil(max/step)*step;
+  const y=v=>m.t+(h-m.t-m.b)*(1-v/top),bw=(w-m.l-m.r)/days.length;
+  for(let v=0;v<=top;v+=step){el("line",{x1:m.l,x2:w-m.r,y1:y(v),y2:y(v),class:v?"gl":"axis"},svg);el("text",{x:m.l-6,y:y(v)+4,"text-anchor":"end",class:"tnum"},svg).textContent=v}
+  cnt.forEach((c,i)=>{let acc=0;const x=m.l+i*bw+bw*.18,bwi=bw*.64;
+    [1,2,3].forEach((p,pi)=>{const v=c.p[pi];if(!v)return;const y0=y(acc),y1=y(acc+v);el("rect",{x,y:y1+1,width:bwi,height:Math.max(0,y0-y1-2),rx:2,fill:`var(--p${p})`},svg);acc+=v});
+    const hit=el("rect",{x:m.l+i*bw,y:m.t,width:bw,height:h-m.t-m.b,fill:"transparent"},svg);
+    hit.addEventListener("mousemove",ev=>showTip(ev,`<b>${fmtD(c.d)}</b><br>${c.n} meldingen<br>P1 ${c.p[0]} · P2 ${c.p[1]} · P3 ${c.p[2]}`));hit.addEventListener("mouseleave",hideTip);
+    el("text",{x:x+bwi/2,y:h-8,"text-anchor":"middle",class:"tnum"},svg).textContent=c.d.getDate()+(i===0?" okt":"");
+  });
+}
+function barsType(rows){
+  const svg=document.getElementById("c-type");
+  const cnt=TYPES.map(t=>({t:t.t,n:rows.filter(r=>r.type===t.t).length})).filter(c=>c.n).sort((a,b)=>b.n-a.n);
+  const w=360,rowH=19,m={l:168,r:30,t:4},h=m.t+Math.max(1,cnt.length)*rowH+4;svg.setAttribute("viewBox",`0 0 ${w} ${h}`);svg.innerHTML="";
+  const max=Math.max(1,...cnt.map(c=>c.n)),x=v=>(w-m.l-m.r)*v/max;
+  cnt.forEach((c,i)=>{const yy=m.t+i*rowH;
+    el("text",{x:m.l-8,y:yy+13,"text-anchor":"end"},svg).textContent=c.t.length>25?c.t.slice(0,24)+"…":c.t;
+    el("rect",{x:m.l,y:yy+3,width:Math.max(2,x(c.n)),height:rowH-6,rx:3,fill:"var(--ink-2)"},svg);
+    el("text",{x:m.l+x(c.n)+5,y:yy+13,class:"tnum",style:"fill:var(--ink)"},svg).textContent=c.n;
+    const hit=el("rect",{x:0,y:yy,width:w,height:rowH,fill:"transparent"},svg);
+    hit.addEventListener("mousemove",ev=>showTip(ev,`<b>${esc(c.t)}</b><br>${c.n} meldingen (${Math.round(c.n/rows.length*100)}%)`));hit.addEventListener("mouseleave",hideTip);
+  });
+  if(!cnt.length)el("text",{x:10,y:16},svg).textContent="Geen meldingen in deze selectie";
+}
+function barsHour(rows){
+  const svg=document.getElementById("c-hour"),w=360,h=200,m={l:28,r:6,t:8,b:26};svg.setAttribute("viewBox",`0 0 ${w} ${h}`);svg.innerHTML="";
+  const cnt=Array.from({length:24},(_,hr)=>rows.filter(r=>r.time.getHours()===hr).length);
+  const max=Math.max(4,...cnt),step=max>10?5:2,top=Math.ceil(max/step)*step,y=v=>m.t+(h-m.t-m.b)*(1-v/top),bw=(w-m.l-m.r)/24;
+  for(let v=0;v<=top;v+=step){el("line",{x1:m.l,x2:w-m.r,y1:y(v),y2:y(v),class:v?"gl":"axis"},svg);el("text",{x:m.l-6,y:y(v)+4,"text-anchor":"end",class:"tnum"},svg).textContent=v}
+  const peak=cnt.indexOf(Math.max(...cnt));
+  cnt.forEach((n,i)=>{const x=m.l+i*bw+1;if(n)el("rect",{x,y:y(n),width:bw-2,height:y(0)-y(n),rx:2,fill:i===peak?"var(--accent)":"var(--ink-3)"},svg);
+    if(i%6===0)el("text",{x:x+bw/2,y:h-8,"text-anchor":"middle",class:"tnum"},svg).textContent=String(i).padStart(2,"0")+":00";
+    const hit=el("rect",{x:m.l+i*bw,y:m.t,width:bw,height:h-m.t-m.b,fill:"transparent"},svg);
+    hit.addEventListener("mousemove",ev=>showTip(ev,`<b>${String(i).padStart(2,"0")}:00–${String(i).padStart(2,"0")}:59</b><br>${n} meldingen${i===peak?" · drukste uur":""}`));hit.addEventListener("mouseleave",hideTip);
+  });
+}
+
+// ---------- kerncijfers ----------
+function renderKpis(rows){
+  const today=rows.filter(r=>r.time.toDateString()===now.toDateString());
+  const days=Math.max(1,Math.ceil((now-start)/864e5));
+  document.getElementById("k-tot").textContent=rows.length;
+  document.getElementById("k-tot-s").textContent=`gemiddeld ${(rows.length/days).toFixed(1).replace(".",",")} per dag`;
+  document.getElementById("k-today").textContent=today.length;
+  document.getElementById("k-today-s").textContent=today[0]?`laatste om ${fmtT(today[0].time)}`:"nog geen meldingen";
+  document.getElementById("k-p1").textContent=rows.length?Math.round(rows.filter(r=>r.prio===1).length/rows.length*100)+"%":"–";
+  const by={};rows.forEach(r=>by[r.type]=(by[r.type]||0)+1);const top=Object.entries(by).sort((a,b)=>b[1]-a[1])[0];
+  document.getElementById("k-top").textContent=top?top[0].replace(/ \(.*\)/,""):"–";
+  document.getElementById("k-top-s").textContent=top?`${top[1]} keer · ${Math.round(top[1]/rows.length*100)}% van alle meldingen`:"";
+}
+
+document.getElementById("feed").addEventListener("click",e=>{const it=e.target.closest(".item");if(!it)return;const m=markerById[it.dataset.id];if(m){lmap.setView(m.getLatLng(),Math.max(lmap.getZoom(),15));m.openTooltip()}});
+function render(){const r=filtered();renderKpis(r);renderMap(r);renderFeed(r);barsDay(r);barsType(r);barsHour(r)}
+// ---------- data laden: echt bestand of voorbeelddata ----------
+let demo=true, demoTimer=null;
+async function load(){
+  try{
+    const r=await fetch("data/meldingen.json?t="+Date.now(),{cache:"no-store"});
+    if(!r.ok)throw 0;
+    const j=await r.json();
+    const rows=(j.meldingen||[]).map(m=>({...m,time:new Date(m.time),caps:m.caps||[],raw:m.raw||""}));
+    if(!rows.length)throw 0;
+    const newest=DATA.length&&!demo?DATA[0].id:null;
+    rows.sort((a,b)=>b.time-a.time);
+    if(newest&&rows[0].id!==newest)S.fresh=rows[0].id;
+    DATA=rows; demo=false;
+    if(demoTimer){clearInterval(demoTimer);demoTimer=null}
+    document.getElementById("notice").hidden=true;
+    const t=j.bijgewerkt?new Date(j.bijgewerkt):new Date();
+    document.getElementById("liveTxt").textContent=`Live · bijgewerkt ${fmtT(t)}`;
+  }catch(e){
+    if(!demoTimer){demoTimer=setInterval(()=>{const t=new Date();const d=make(t);DATA.unshift(d);S.fresh=d.id;
+      document.getElementById("liveTxt").textContent=`Live (demo) · laatste melding ${fmtT(t)}`;render();S.fresh=null},40000)}
+  }
+  render();
+  S.fresh=null;
+}
+load();
+setInterval(()=>{if(!demo||location.protocol!=="file:")load()},60000);
+})();
+</script>
+</body>
+</html>
