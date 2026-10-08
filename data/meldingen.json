@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-10-08T18:52:47+00:00",
+ "bijgewerkt": "2026-10-08T19:26:37+00:00",
  "bron": "alarmeringen.nl",
  "meldingen": [
   {
@@ -10,9 +10,9 @@
    "type": "CO-melding",
    "prio": 2,
    "street": "Pleineslaan",
-   "lat": 52.1395,
-   "lon": 5.247,
-   "precisie": "plaats",
+   "lat": 52.14275,
+   "lon": 5.23542,
+   "precisie": "straat",
    "raw": "P 2 BMD-02 CO-melder Pleineslaan Den Dolder 096531",
    "caps": [
     "096531"
@@ -27,10 +27,10 @@
    "g": "De Bilt",
    "type": "Brandgerucht / rookmelding",
    "prio": 2,
-   "street": "Laurensweg",
-   "lat": 52.11,
-   "lon": 5.18,
-   "precisie": "plaats",
+   "street": "Sint Laurensweg",
+   "lat": 52.11233,
+   "lon": 5.18644,
+   "precisie": "straat",
    "raw": "P 2 BMD-01 Brandgerucht (detectie: rook/hitte) zc Silverein de Rinnebeek Sint Laurensweg De Bilt 090831",
    "caps": [
     "090831"
@@ -46,9 +46,9 @@
    "type": "Gaslek / gevaarlijke stof",
    "prio": 1,
    "street": "Slotlaan",
-   "lat": 52.0895,
-   "lon": 5.233,
-   "precisie": "plaats",
+   "lat": 52.08683,
+   "lon": 5.24591,
+   "precisie": "straat",
    "raw": "P 1 BMD-01 Ongeval gev. stof (Gaslekkage) (buiten) Pandarve Eetcafe Slotlaan Zeist 098094 096631",
    "caps": [
     "098094",
@@ -64,10 +64,10 @@
    "g": "Zeist",
    "type": "Ongeval",
    "prio": 2,
-   "street": "Lorentzlaan",
-   "lat": 52.0895,
-   "lon": 5.233,
-   "precisie": "plaats",
+   "street": "Prof. Lorentzlaan",
+   "lat": 52.09182,
+   "lon": 5.26073,
+   "precisie": "straat",
    "raw": "P 2 BMD-01 Ongeval Prof. Lorentzlaan Zeist 096631 098094",
    "caps": [
     "096631",
@@ -83,10 +83,10 @@
    "g": "Zeist",
    "type": "Automatisch brandalarm (OMS)",
    "prio": 1,
-   "street": "Heideweg",
-   "lat": 52.0895,
-   "lon": 5.233,
-   "precisie": "plaats",
+   "street": "Huis ter Heideweg",
+   "lat": 52.10693,
+   "lon": 5.25466,
+   "precisie": "straat",
    "raw": "P 1 BMD-06 OMS beheerssysteem (detectie: sprinkler) Connexxion NV Huis ter Heideweg Zeist 096631",
    "caps": [
     "096631"
@@ -102,9 +102,9 @@
    "type": "Reanimatie (assistentie)",
    "prio": 1,
    "street": "Utrechtseweg",
-   "lat": 52.0895,
-   "lon": 5.233,
-   "precisie": "plaats",
+   "lat": 52.0913,
+   "lon": 5.2252,
+   "precisie": "straat",
    "raw": "P 1 BMD-01 Reanimatie Utrechtseweg Zeist 096631",
    "raw_all": [
     "P 1 BMD-01 Reanimatie Utrechtseweg Zeist 096631",
@@ -124,10 +124,10 @@
    "g": "Zeist",
    "type": "Reanimatie (assistentie)",
    "prio": 1,
-   "street": "Arnhemseweg",
-   "lat": 52.0895,
-   "lon": 5.233,
-   "precisie": "plaats",
+   "street": "Oude Arnhemseweg",
+   "lat": 52.09366,
+   "lon": 5.23033,
+   "precisie": "straat",
    "raw": "P 1 BMD-01 Reanimatie Oude Arnhemseweg Zeist 096631",
    "caps": [
     "096631"
@@ -143,9 +143,9 @@
    "type": "Reanimatie (assistentie)",
    "prio": 1,
    "street": "Woudenbergseweg",
-   "lat": 52.0895,
-   "lon": 5.233,
-   "precisie": "plaats",
+   "lat": 52.0879,
+   "lon": 5.30604,
+   "precisie": "straat",
    "raw": "P 1 BMD-01 Reanimatie Woudenbergseweg Zeist 096631",
    "caps": [
     "096631"
@@ -161,9 +161,9 @@
    "type": "Reanimatie (assistentie)",
    "prio": 1,
    "street": "Heideweg",
-   "lat": 52.0895,
-   "lon": 5.233,
-   "precisie": "plaats",
+   "lat": 52.07435,
+   "lon": 5.25395,
+   "precisie": "straat",
    "raw": "P 1 BMD-03 Reanimatie zc Verpleeghotel Bovenwegen Heideweg Zeist 096631",
    "raw_all": [
     "P 1 BMD-03 Reanimatie zc Verpleeghotel Bovenwegen Heideweg Zeist 096631",
@@ -184,9 +184,9 @@
    "type": "Stank / hinderlijke lucht",
    "prio": 2,
    "street": "Vermeerlaan",
-   "lat": 52.129,
-   "lon": 5.203,
-   "precisie": "plaats",
+   "lat": 52.14204,
+   "lon": 5.20508,
+   "precisie": "straat",
    "raw": "P 2 BMD-01 Stank/hind. lucht Vermeerlaan Bilthoven 096531",
    "caps": [
     "096531"

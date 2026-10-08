@@ -1,1 +1,62 @@
-{}
+{
+ "De Bilt|de rinnebeek sint laurensweg": {
+  "straat": "Sint Laurensweg",
+  "woonplaats": "De Bilt",
+  "lat": 52.11233,
+  "lon": 5.18644
+ },
+ "De Bilt|stank/hind. lucht vermeerlaan": {
+  "straat": "Vermeerlaan",
+  "woonplaats": "Bilthoven",
+  "lat": 52.14204,
+  "lon": 5.20508
+ },
+ "Zeist|huis ter heideweg": {
+  "straat": "Huis ter Heideweg",
+  "woonplaats": "Huis ter Heide",
+  "lat": 52.10693,
+  "lon": 5.25466
+ },
+ "Zeist|oude arnhemseweg": {
+  "straat": "Oude Arnhemseweg",
+  "woonplaats": "Zeist",
+  "lat": 52.09366,
+  "lon": 5.23033
+ },
+ "Zeist|pandarve eetcafe slotlaan": {
+  "straat": "Slotlaan",
+  "woonplaats": "Zeist",
+  "lat": 52.08683,
+  "lon": 5.24591
+ },
+ "Zeist|pleineslaan": {
+  "straat": "Pleineslaan",
+  "woonplaats": "Den Dolder",
+  "lat": 52.14275,
+  "lon": 5.23542
+ },
+ "Zeist|prof. lorentzlaan": {
+  "straat": "Prof. Lorentzlaan",
+  "woonplaats": "Zeist",
+  "lat": 52.09182,
+  "lon": 5.26073
+ },
+ "Zeist|utrechtseweg": {
+  "straat": "Utrechtseweg",
+  "woonplaats": "Zeist",
+  "lat": 52.0913,
+  "lon": 5.2252
+ },
+ "Zeist|verpleeghotel bovenwegen heideweg": {
+  "straat": "Heideweg",
+  "woonplaats": "Zeist",
+  "lat": 52.07435,
+  "lon": 5.25395
+ },
+ "Zeist|woudenbergseweg": {
+  "straat": "Woudenbergseweg",
+  "woonplaats": "Austerlitz",
+  "lat": 52.0879,
+  "lon": 5.30604
+ }
+}
