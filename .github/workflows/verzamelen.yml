@@ -2,7 +2,7 @@ name: Meldingen verzamelen
 
 on:
   schedule:
-    - cron: "*/10 * * * *"   # elke 10 minuten (GitHub kan een paar minuten later starten)
+    - cron: "*/15 * * * *"   # elke 15 minuten, zoals afgesproken met alarmeringen.nl
   workflow_dispatch:          # handmatig starten via het tabblad Actions
 
 permissions:
