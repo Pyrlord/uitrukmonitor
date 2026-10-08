@@ -1,0 +1,42 @@
+name: Meldingen verzamelen
+
+on:
+  schedule:
+    - cron: "*/10 * * * *"   # elke 10 minuten (GitHub kan een paar minuten later starten)
+  workflow_dispatch:          # handmatig starten via het tabblad Actions
+
+permissions:
+  contents: write
+
+concurrency:
+  group: verzamelen
+  cancel-in-progress: false
+
+jobs:
+  verzamelen:
+    # Automatisch draaien gebeurt pas als je de repository-variabele VERZAMELEN_AAN op "ja" zet.
+    # Handmatig starten werkt altijd (handig om te testen).
+    if: github.event_name == 'workflow_dispatch' || vars.VERZAMELEN_AAN == 'ja'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Feeds ophalen en meldingen bijwerken
+        run: python scripts/collect.py
+
+      - name: Wijzigingen opslaan
+        run: |
+          if [ -n "$(git status --porcelain data)" ]; then
+            git config user.name "uitrukmonitor-bot"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add data
+            git commit -m "Meldingen bijgewerkt"
+            git push
+          else
+            echo "Geen nieuwe meldingen."
+          fi
