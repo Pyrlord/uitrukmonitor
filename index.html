@@ -6,8 +6,6 @@
 <title>Uitrukmonitor Zeist–De Bilt</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
-</body>
-</html>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
@@ -18,6 +16,7 @@
   --line:#d8dcd5; --grid:#e3e6e0; --accent:#b8321f; --accent-soft:#f3dcd6;
   --p1:#c8321f; --p2:#c48a00; --p3:#2f6fb0; --halo:#dfe3dc; --mapbg:#f2f4ef;
   --seq0:#f6e3de; --seq1:#e9a99c; --seq2:#d26a56; --seq3:#a8281a;
+  --rain:#2a7f96; --wind:#5d6b7a; --storm:#b8321f; --temp:#18202a;
   --f-display:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;
   --f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
   --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
@@ -26,12 +25,12 @@
   --bg:#10151b; --surface:#151a20; --ink:#e7eaee; --ink-2:#a9b2bc; --ink-3:#7c8691;
   --line:#28303a; --grid:#1d242c; --accent:#e8604c; --accent-soft:#3a1d18;
   --p1:#c83424; --p2:#bb8a22; --p3:#5a95d9; --halo:#1f262e; --mapbg:#131920;
-  --seq0:#3a1f1b; --seq1:#6e2c22; --seq2:#b2412e; --seq3:#f07a62; color-scheme:dark}}
+  --seq0:#3a1f1b; --seq1:#6e2c22; --seq2:#b2412e; --seq3:#f07a62; --rain:#4fb0c8; --wind:#8a98a8; --storm:#e8604c; --temp:#e7eaee; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#10151b; --surface:#151a20; --ink:#e7eaee; --ink-2:#a9b2bc; --ink-3:#7c8691;
   --line:#28303a; --grid:#1d242c; --accent:#e8604c; --accent-soft:#3a1d18;
   --p1:#c83424; --p2:#bb8a22; --p3:#5a95d9; --halo:#1f262e; --mapbg:#131920;
-  --seq0:#3a1f1b; --seq1:#6e2c22; --seq2:#b2412e; --seq3:#f07a62; color-scheme:dark}
+  --seq0:#3a1f1b; --seq1:#6e2c22; --seq2:#b2412e; --seq3:#f07a62; --rain:#4fb0c8; --wind:#8a98a8; --storm:#e8604c; --temp:#e7eaee; color-scheme:dark}
 
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:14px;line-height:1.45;padding-inline:16px;padding-block:20px 40px}
@@ -90,6 +89,12 @@ select{font:inherit;font-size:13px;padding:5px 8px;border-radius:6px;border:1px 
 .pill.p1{background:var(--p1)}.pill.p2{background:var(--p2)}.pill.p3{background:var(--p3)}
 .what{font-weight:600}
 .meta{font-size:12px;color:var(--ink-2)}
+.wxpanel .wxscroll{overflow-x:auto;margin-inline:-4px}
+.wxpanel svg{display:block;min-width:620px;width:100%;height:auto}
+.wxfacts{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:10px 24px;margin-top:12px;font-size:13px;color:var(--ink-2)}
+.wxfacts b{color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums}
+.wxfacts .note{grid-column:1/-1;font-size:12px;color:var(--ink-3)}
+.wx{grid-column:2;font-size:12px;color:var(--ink-2)}
 .chipx{font-family:var(--f-mono);font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.06em;padding:1px 5px;border-radius:3px;border:1px solid var(--ink-3);color:var(--ink-2);vertical-align:2px}
 .raw a{color:var(--ink-2)}
 .raw{grid-column:2;font-family:var(--f-mono);font-size:11px;color:var(--ink-3);overflow-wrap:anywhere}
@@ -154,6 +159,7 @@ body{margin:0}
     <div class="kpi"><span class="k">Vandaag</span><span class="v" id="k-today">–</span><span class="s" id="k-today-s"></span></div>
     <div class="kpi"><span class="k">Aandeel prio 1</span><span class="v" id="k-p1">–</span><span class="s">met spoed (optische en geluidssignalen)</span></div>
     <div class="kpi"><span class="k">Meest voorkomend</span><span class="v" id="k-top" style="font-size:24px;padding-block:7px">–</span><span class="s" id="k-top-s"></span></div>
+    <div class="kpi"><span class="k">Weer nu in De Bilt</span><span class="v" id="k-wx">–</span><span class="s" id="k-wx-s">weergegevens laden…</span></div>
     <div class="kpi na"><span class="k">Opkomsttijd</span><span class="v">Niet in P2000</span><span class="s">Alleen jaarcijfers via de Veiligheidsregio</span></div>
   </section>
 
@@ -182,13 +188,21 @@ body{margin:0}
     <section class="panel"><div class="phead"><h2>Tijdstip</h2><p>meldingen per uur van de dag</p></div><svg id="c-hour"></svg></section>
   </div>
 
+  <section class="panel wxpanel" aria-label="Meldingen en weer per dag">
+    <div class="phead"><h2>Meldingen en weer per dag</h2><p>De Bilt · KNMI-weermodel via Open-Meteo</p></div>
+    <div class="legend" style="margin:0 0 6px"><span><span class="sw" style="background:var(--p1)"></span>Prio 1</span><span><span class="sw" style="background:var(--p2)"></span>Prio 2</span><span><span class="sw" style="background:var(--p3)"></span>Prio 3</span><span><span class="sw" style="background:var(--rain);border-radius:2px"></span>Neerslag</span><span><span class="sw" style="background:var(--storm);border-radius:2px"></span>Windstoot ≥ 62 km/u (stormachtig)</span></div>
+    <div class="wxscroll"><svg id="c-wx" role="img" aria-label="Meldingen per dag met neerslag, windstoten en temperatuur"></svg></div>
+    <div class="wxfacts" id="wxfacts"></div>
+  </section>
+
   <section class="panel explain" aria-label="Uitleg">
     <div><h3>Waar komt de data vandaan?</h3><p>Brandweerploegen worden gealarmeerd via P2000, een netwerk voor piepers. Een bericht bevat prio, soort melding, straat, plaats en de roepnummers van de gealarmeerde voertuigen. We halen de berichten per plaats op bij alarmeringen.nl en houden alleen de brandweer over (code BMD). Berichten over hetzelfde incident voegen we samen.</p></div>
     <div><h3>Waarom geen reactietijd?</h3><p>P2000 laat alleen het moment van alarmeren zien. Uitrukken en aankomst worden gemeld via C2000-statusberichten, en die zijn versleuteld. De officiële opkomsttijden publiceert de Veiligheidsregio Utrecht per jaar.</p></div>
+    <div><h3>Het weer</h3><p>Het weer komt uit het weermodel van het KNMI (HARMONIE), opgehaald via Open-Meteo voor De Bilt. Dat zijn modelwaarden per uur, geen metingen van het weerstation. Bij elke melding staat het weer van dat uur.</p></div>
     <div><h3>Privacy</h3><p>We tonen meldingen op straatniveau, zonder huisnummer. Met de weergave in vakken van 500 m zie je patronen zonder dat één adres herkenbaar is.</p></div>
   </section>
 
-  <footer>Meldingen: <a href="https://alarmeringen.nl" target="_blank" rel="noopener">alarmeringen.nl</a> (P2000), gebruikt met toestemming voor dit niet-commerciële project. Ondergrond: BRT Achtergrondkaart en Luchtfoto van PDOK (Kadaster), of OpenStreetMap. Meldingen op straatniveau, zonder huisnummer.</footer>
+  <footer>Meldingen: <a href="https://alarmeringen.nl" target="_blank" rel="noopener">alarmeringen.nl</a> (P2000), gebruikt met toestemming voor dit niet-commerciële project. Weer: <a href="https://open-meteo.com" target="_blank" rel="noopener">Open-Meteo.com</a> (KNMI HARMONIE-model, CC BY 4.0). Ondergrond: BRT Achtergrondkaart en Luchtfoto van PDOK (Kadaster), of OpenStreetMap. Meldingen op straatniveau, zonder huisnummer.</footer>
 </div>
 <div class="tip" id="tip" hidden></div>
 
@@ -276,7 +290,7 @@ const hideTip=()=>tip.hidden=true;
 const fmtT=t=>t.toLocaleTimeString("nl-NL",{hour:"2-digit",minute:"2-digit"});
 const fmtD=t=>t.toLocaleDateString("nl-NL",{weekday:"short",day:"numeric",month:"short"});
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const tipFor=d=>`<b>${esc(d.type)}</b>${d.ingetrokken?" (ingetrokken)":""}<br>${esc(d.street||"onbekende straat")}, ${esc(d.place)}${d.precisie==="plaats"?" (bij benadering)":""}<br>${fmtD(d.time)} · ${fmtT(d.time)} · Prio ${d.prio}`;
+const tipFor=d=>`<b>${esc(d.type)}</b>${d.ingetrokken?" (ingetrokken)":""}<br>${esc(d.street||"onbekende straat")}, ${esc(d.place)}${d.precisie==="plaats"?" (bij benadering)":""}<br>${fmtD(d.time)} · ${fmtT(d.time)} · Prio ${d.prio}${wxText(d)?"<br>"+wxText(d):""}`;
 
 // ---------- kaart (Leaflet) ----------
 const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
@@ -331,6 +345,7 @@ function renderFeed(rows){
   f.innerHTML=rows.slice(0,80).map(d=>`<div class="item${d.id===S.fresh?" new":""}" tabindex="0" data-id="${d.id}">
     <span class="pill p${d.prio}">P${d.prio}</span>
     <div><div class="what">${esc(d.type)}${d.ingetrokken?' <span class="chipx">ingetrokken</span>':""}</div><div class="meta tnum">${esc(d.street||"onbekende straat")}, ${esc(d.place)}${d.precisie==="plaats"?" (locatie bij benadering)":""} · ${fmtD(d.time)} ${fmtT(d.time)}</div></div>
+    ${wxText(d)?`<div class="wx">${wxText(d)}</div>`:""}
     <div class="raw">${esc(d.raw)}${d.caps&&d.caps.length?` · roepnr. ${d.caps.map(esc).join(" ")}`:""}${d.link?` · <a href="${esc(d.link)}" target="_blank" rel="noopener">bron</a>`:""}</div></div>`).join("");
 }
 
@@ -391,7 +406,105 @@ function renderKpis(rows){
 }
 
 document.getElementById("feed").addEventListener("click",e=>{if(e.target.closest("a"))return;const it=e.target.closest(".item");if(!it)return;const m=markerById[it.dataset.id];if(m){lmap.setView(m.getLatLng(),Math.max(lmap.getZoom(),15));m.openTooltip()}});
-function render(){const r=filtered();renderKpis(r);renderMap(r);renderFeed(r);barsDay(r);barsType(r);barsHour(r)}
+// ---------- weer (Open-Meteo, KNMI-model, De Bilt) ----------
+const WX={hourly:{},daily:{},ok:false,err:false};
+const pad2=n=>String(n).padStart(2,"0");
+const dayKey=t=>`${t.getFullYear()}-${pad2(t.getMonth()+1)}-${pad2(t.getDate())}`;
+const hourKey=t=>`${dayKey(t)}T${pad2(t.getHours())}:00`;
+const nl1=v=>v==null?"–":(Math.round(v*10)/10).toLocaleString("nl-NL");
+const WMO={0:"onbewolkt",1:"licht bewolkt",2:"half bewolkt",3:"bewolkt",45:"mist",48:"rijpmist",51:"motregen",53:"motregen",55:"motregen",56:"ijzel",57:"ijzel",61:"lichte regen",63:"regen",65:"zware regen",66:"ijzel",67:"ijzel",71:"lichte sneeuw",73:"sneeuw",75:"zware sneeuw",77:"sneeuw",80:"buien",81:"buien",82:"zware buien",85:"sneeuwbuien",86:"sneeuwbuien",95:"onweer",96:"onweer met hagel",99:"onweer met hagel"};
+function wxText(d){
+  const h=WX.hourly[hourKey(d.time)];
+  if(!h)return "";
+  const parts=[`${nl1(h.t)} °C`,`windstoten ${Math.round(h.g)} km/u`];
+  if(h.p>0)parts.push(`${nl1(h.p)} mm regen`);else parts.push("droog");
+  return "Weer: "+parts.join(" · ");
+}
+async function loadWeather(){
+  const days=Math.ceil((Date.now()-start)/864e5)+1;
+  const base="latitude=52.10&longitude=5.18&timezone=Europe%2FAmsterdam&wind_speed_unit=kmh"
+    +"&hourly=temperature_2m,precipitation,wind_gusts_10m,weather_code"
+    +"&daily=temperature_2m_max,precipitation_sum,wind_gusts_10m_max";
+  const urls=[`https://api.open-meteo.com/v1/forecast?${base}&models=knmi_seamless&past_days=${Math.min(92,days)}&forecast_days=1`];
+  if(days>90){ // ouder dan ~3 maanden: aanvullen uit het archief
+    const end=new Date(Date.now()-89*864e5);
+    urls.unshift(`https://archive-api.open-meteo.com/v1/archive?${base}&start_date=${dayKey(start)}&end_date=${dayKey(end)}`);
+  }
+  try{
+    for(const u of urls){
+      const r=await fetch(u);if(!r.ok)throw new Error(r.status);
+      const j=await r.json();
+      j.hourly.time.forEach((k,i)=>{const t=j.hourly.temperature_2m[i];if(t==null)return;
+        WX.hourly[k]={t,p:j.hourly.precipitation[i]||0,g:j.hourly.wind_gusts_10m[i]||0,c:j.hourly.weather_code[i]}});
+      j.daily.time.forEach((k,i)=>{const tx=j.daily.temperature_2m_max[i];if(tx==null)return;
+        WX.daily[k]={tx,p:j.daily.precipitation_sum[i]||0,g:j.daily.wind_gusts_10m_max[i]||0}});
+    }
+    WX.ok=true;WX.err=false;
+  }catch(e){WX.err=true}
+}
+function renderWxKpi(){
+  const v=document.getElementById("k-wx"),s2=document.getElementById("k-wx-s");
+  const h=WX.hourly[hourKey(new Date())];
+  if(!h){v.textContent="–";s2.textContent=WX.err?"weergegevens nu niet beschikbaar":"weergegevens laden…";return}
+  v.textContent=`${nl1(h.t)} °C`;
+  s2.textContent=`${WMO[h.c]||""}${WMO[h.c]?" · ":""}windstoten ${Math.round(h.g)} km/u${h.p>0?` · ${nl1(h.p)} mm`:""}`;
+}
+const STORM=62; // windstoten vanaf 62 km/u: stormachtig (8 Beaufort)
+const WINDY=50; // grens voor "winderige dag" in de vergelijking
+function renderWeather(rows){
+  renderWxKpi();
+  const svg=document.getElementById("c-wx");svg.innerHTML="";
+  const days=[];for(let d=new Date(start);d<=now;d.setDate(d.getDate()+1))days.push(new Date(d));
+  const W=1000,m={l:36,r:14},rowsDef=[{k:"n",h:110,label:"Meldingen"},{k:"p",h:64,label:"Neerslag (mm)"},{k:"g",h:64,label:"Zwaarste windstoot (km/u)"},{k:"tx",h:64,label:"Max. temperatuur (°C)"}];
+  const gap=12,lab=20,top0=4;let y=top0;rowsDef.forEach(r=>{r.ly=y+13;r.y=y+lab;y+=lab+r.h+gap});
+  const H=y+10;svg.setAttribute("viewBox",`0 0 ${W} ${H}`);
+  const bw=(W-m.l-m.r)/days.length,xs=i=>m.l+i*bw;
+  const per=days.map(d=>{const k=dayKey(d),r=rows.filter(x=>dayKey(x.time)===k);return {d,k,n:r.length,pr:[1,2,3].map(p=>r.filter(x=>x.prio===p).length),w:WX.daily[k]}});
+  rowsDef.forEach(r=>{
+    el("text",{x:m.l,y:r.ly,style:"font-weight:600;fill:var(--ink)"},svg).textContent=r.label;
+    el("line",{x1:m.l,x2:W-m.r,y1:r.y+r.h,y2:r.y+r.h,class:"axis"},svg);
+  });
+  // rij 1: meldingen (gestapeld per prio)
+  const R1=rowsDef[0],maxN=Math.max(2,...per.map(c=>c.n)),stepN=maxN>6?5:1,topN=Math.ceil(maxN/stepN)*stepN,y1=v=>R1.y+R1.h-(R1.h-4)*v/topN;
+  for(let v=stepN;v<=topN;v+=stepN){el("line",{x1:m.l,x2:W-m.r,y1:y1(v),y2:y1(v),class:"gl"},svg);el("text",{x:m.l-6,y:y1(v)+4,"text-anchor":"end",class:"tnum"},svg).textContent=v}
+  per.forEach((c,i)=>{let acc=0;[1,2,3].forEach((p,pi)=>{const v=c.pr[pi];if(!v)return;const a=y1(acc),b=y1(acc+v);el("rect",{x:xs(i)+bw*.2,y:b+1,width:bw*.6,height:Math.max(0,a-b-2),rx:2,fill:`var(--p${p})`},svg);acc+=v})});
+  if(!WX.ok){el("text",{x:m.l,y:rowsDef[1].y+30},svg).textContent=WX.err?"Weergegevens zijn nu niet beschikbaar. De pagina probeert het later opnieuw.":"Weergegevens laden…"}
+  else{
+    // rij 2: neerslag
+    const R2=rowsDef[1],maxP=Math.max(5,...per.map(c=>c.w?c.w.p:0)),y2=v=>R2.y+R2.h-(R2.h-4)*v/maxP;
+    el("text",{x:m.l-6,y:y2(maxP)+4,"text-anchor":"end",class:"tnum"},svg).textContent=Math.round(maxP);
+    per.forEach((c,i)=>{if(!c.w||c.w.p<=0)return;el("rect",{x:xs(i)+bw*.2,y:y2(c.w.p),width:bw*.6,height:R2.y+R2.h-y2(c.w.p),rx:2,fill:"var(--rain)"},svg)});
+    // rij 3: windstoten, met stormgrens
+    const R3=rowsDef[2],maxG=Math.max(80,...per.map(c=>c.w?c.w.g:0)),y3=v=>R3.y+R3.h-(R3.h-4)*v/maxG;
+    el("line",{x1:m.l,x2:W-m.r,y1:y3(STORM),y2:y3(STORM),stroke:"var(--storm)","stroke-dasharray":"4 4","stroke-width":1},svg);
+    el("text",{x:m.l-6,y:y3(STORM)+4,"text-anchor":"end",class:"tnum",style:"fill:var(--storm)"},svg).textContent=STORM;
+    per.forEach((c,i)=>{if(!c.w)return;el("rect",{x:xs(i)+bw*.2,y:y3(c.w.g),width:bw*.6,height:R3.y+R3.h-y3(c.w.g),rx:2,fill:c.w.g>=STORM?"var(--storm)":"var(--wind)"},svg)});
+    // rij 4: max temperatuur (lijn)
+    const R4=rowsDef[3],tv=per.filter(c=>c.w).map(c=>c.w.tx),lo=Math.floor(Math.min(...tv)/5)*5,hi=Math.ceil(Math.max(...tv)/5)*5||lo+5,y4=v=>R4.y+R4.h-4-(R4.h-12)*(v-lo)/Math.max(1,hi-lo);
+    [lo,hi].forEach(v=>el("text",{x:m.l-6,y:y4(v)+4,"text-anchor":"end",class:"tnum"},svg).textContent=v);
+    const pts=per.map((c,i)=>c.w?`${xs(i)+bw/2},${y4(c.w.tx)}`:null).filter(Boolean);
+    if(pts.length>1)el("polyline",{points:pts.join(" "),fill:"none",stroke:"var(--temp)","stroke-width":2,"stroke-linejoin":"round"},svg);
+    per.forEach((c,i)=>{if(c.w)el("circle",{cx:xs(i)+bw/2,cy:y4(c.w.tx),r:3,fill:"var(--temp)"},svg)});
+  }
+  // datums onder de laatste rij
+  const last=rowsDef[rowsDef.length-1],every=Math.max(1,Math.ceil(days.length/16));
+  per.forEach((c,i)=>{if(i%every===0||i===days.length-1)el("text",{x:xs(i)+bw/2,y:last.y+last.h+14,"text-anchor":"middle",class:"tnum"},svg).textContent=c.d.getDate()+(c.d.getDate()===1||i===0?" "+c.d.toLocaleDateString("nl-NL",{month:"short"}):"")});
+  // hover: één kolom over alle rijen
+  per.forEach((c,i)=>{const hit=el("rect",{x:xs(i),y:top0,width:bw,height:last.y+last.h-top0,fill:"transparent"},svg);
+    hit.addEventListener("mousemove",ev=>showTip(ev,`<b>${fmtD(c.d)}</b><br>${c.n} melding${c.n===1?"":"en"}${c.w?`<br>Neerslag ${nl1(c.w.p)} mm<br>Zwaarste windstoot ${Math.round(c.w.g)} km/u<br>Max. ${nl1(c.w.tx)} °C`:""}`));
+    hit.addEventListener("mouseleave",hideTip)});
+  // vergelijking
+  const f=document.getElementById("wxfacts");
+  if(!WX.ok){f.innerHTML="";return}
+  const full=per.filter(c=>c.w&&c.k!==dayKey(now)); // alleen volledige dagen
+  const avg=a=>a.length?a.reduce((s,c)=>s+c.n,0)/a.length:null;
+  const cmp=(a,b,la,lb)=>`${la}: <b>${avg(a)==null?"–":nl1(avg(a))}</b> per dag <span>(${a.length} dagen)</span><br>${lb}: <b>${avg(b)==null?"–":nl1(avg(b))}</b> per dag <span>(${b.length} dagen)</span>`;
+  const windy=full.filter(c=>c.w.g>=WINDY),calm=full.filter(c=>c.w.g<WINDY),wet=full.filter(c=>c.w.p>=1),dry=full.filter(c=>c.w.p<1);
+  f.innerHTML=`<div>${cmp(windy,calm,`Winderige dagen (windstoten ≥ ${WINDY} km/u)`,"Rustige dagen")}</div>
+    <div>${cmp(wet,dry,"Natte dagen (≥ 1 mm regen)","Droge dagen")}</div>
+    <div class="note">Gebaseerd op ${full.length} volledige dagen en de huidige filters. Met zo weinig dagen zegt een verschil nog weinig; dit wordt betrouwbaarder naarmate er meer weken bijkomen.</div>`;
+}
+function render(){const r=filtered();renderKpis(r);renderMap(r);renderFeed(r);barsDay(r);barsType(r);barsHour(r);renderWeather(r)}
 // ---------- data laden: echt bestand of voorbeelddata ----------
 let demo=true, demoTimer=null;
 async function load(){
@@ -417,7 +530,9 @@ async function load(){
   S.fresh=null;
 }
 load();
+loadWeather().then(render);
 setInterval(()=>{if(!demo||location.protocol!=="file:")load()},60000);
+setInterval(()=>loadWeather().then(render),30*60000);
 })();
 </script>
 </body>

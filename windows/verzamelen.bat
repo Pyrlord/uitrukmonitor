@@ -37,12 +37,13 @@ if %errorlevel%==0 (
 )
 
 rem 3. Alleen opslaan als er echt iets veranderd is
-git add data
+rem    (data, plus website-bestanden die Claude heeft bijgewerkt)
+git add data index.html windows\verzamelen.bat
 git diff --cached --quiet
 if %errorlevel%==0 (
   echo Geen nieuwe meldingen om op te slaan. >> "%LOG%"
 ) else (
-  git commit -m "Meldingen bijgewerkt (laptop)" >> "%LOG%" 2>&1
+  git commit -m "Bijgewerkt vanaf laptop" >> "%LOG%" 2>&1
   git push >> "%LOG%" 2>&1
 )
 
