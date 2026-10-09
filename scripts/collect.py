@@ -16,6 +16,7 @@ from __future__ import annotations
 import email.utils
 import hashlib
 import json
+import os
 import re
 import sys
 import time
@@ -31,8 +32,15 @@ BERICHTEN = DATA / "berichten.json"
 MELDINGEN = DATA / "meldingen.json"
 GEOCACHE = DATA / "geocache.json"
 
+# WhatsApp-meldingen (CallMeBot). Deze twee bestanden staan in .gitignore en gaan NOOIT naar GitHub.
+WHATSAPP_CFG = ROOT / "windows" / "whatsapp.txt"            # telefoon=... en apikey=...
+WHATSAPP_GEMELD = ROOT / "windows" / "whatsapp_gemeld.json"  # welke meldingen al zijn doorgestuurd
+SITE_URL = "https://pyrlord.github.io/uitrukmonitor/"
+
 START = datetime(2026, 10, 1, tzinfo=timezone(timedelta(hours=2)))  # 1 oktober 2026, 00:00 NL-tijd
-USER_AGENT = "Uitrukmonitor-Zeist-DeBilt/1.0 (niet-commercieel hobbyproject)"
+_REPO = os.environ.get("GITHUB_REPOSITORY", "")
+# Herkenbare, eerlijke User-Agent: zo kan alarmeringen.nl zien wie er ophaalt en dit eventueel toestaan.
+USER_AGENT = "Uitrukmonitor-Zeist-DeBilt/1.0 (niet-commercieel hobbyproject" + (f"; https://github.com/{_REPO}" if _REPO else "") + ")"
 FEED_URL = "https://alarmeringen.nl/feeds/city/{slug}.rss"
 PDOK_URL = "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free"
 
@@ -340,8 +348,94 @@ def bouw_meldingen(berichten: list[dict], cache: dict, online: bool) -> list[dic
     return sorted(meldingen, key=lambda m: m["time"], reverse=True)
 
 
+
+# ---------------------------------------------------------------- 5. WhatsApp-melding
+DAGEN = ["ma", "di", "wo", "do", "vr", "za", "zo"]
+
+
+def lees_whatsapp() -> dict | None:
+    if not WHATSAPP_CFG.exists():
+        return None
+    cfg = {}
+    for regel in WHATSAPP_CFG.read_text(encoding="utf-8", errors="ignore").splitlines():
+        if "=" in regel:
+            k, v = regel.split("=", 1)
+            cfg[k.strip().lower()] = v.strip()
+    if not cfg.get("telefoon") or not cfg.get("apikey"):
+        log("  ! whatsapp.txt mist telefoon of apikey")
+        return None
+    return cfg
+
+
+def stuur_whatsapp(cfg: dict, tekst: str) -> bool:
+    url = "https://api.callmebot.com/whatsapp.php?" + urllib.parse.urlencode(
+        {"phone": cfg["telefoon"], "text": tekst, "apikey": cfg["apikey"]})
+    try:
+        antwoord = http_get(url, timeout=30).decode("utf-8", errors="ignore")
+    except Exception as e:  # noqa: BLE001
+        log(f"  ! WhatsApp versturen mislukt: {e}")
+        return False
+    ok = "queued" in antwoord.lower() or "sent" in antwoord.lower()
+    if not ok:
+        log("  ! WhatsApp: onverwacht antwoord van CallMeBot: " + re.sub(r"<[^>]+>", " ", antwoord)[:200])
+    return ok
+
+
+def melding_tekst(m: dict) -> str:
+    t = datetime.fromisoformat(m["time"]).astimezone()  # lokale tijd van de laptop
+    regels = [
+        f"*Brandweer P{m['prio']}* · {m['type']}",
+        f"{m.get('street') or 'onbekende straat'}, {m['place']}",
+        f"{DAGEN[t.weekday()]} {t.day}-{t.month} om {t:%H:%M}",
+        SITE_URL,
+    ]
+    return "\n".join(regels)
+
+
+def meld_nieuwe(meldingen: list[dict]) -> None:
+    cfg = lees_whatsapp()
+    if cfg is None:
+        return
+    alle_ids = [m["id"] for m in meldingen]
+    gemeld = lees_json(WHATSAPP_GEMELD, None)
+    if gemeld is None:
+        # Eerste keer: niet alle oude meldingen in één keer sturen, alleen onthouden.
+        schrijf_json(WHATSAPP_GEMELD, alle_ids)
+        log(f"WhatsApp ingesteld; {len(alle_ids)} bestaande meldingen gemarkeerd als al bekend")
+        return
+    gemeld = set(gemeld)
+    grens = datetime.now(timezone.utc) - timedelta(hours=24)
+    nieuw = [m for m in meldingen if m["id"] not in gemeld and datetime.fromisoformat(m["time"]) >= grens]
+    nieuw.sort(key=lambda m: m["time"])
+    verstuurd = set()
+    if len(nieuw) > 5:  # niet spammen: één samenvatting
+        tekst = f"*{len(nieuw)} nieuwe brandweermeldingen* in Zeist en De Bilt\nBekijk ze op {SITE_URL}"
+        if stuur_whatsapp(cfg, tekst):
+            verstuurd = {m["id"] for m in nieuw}
+    else:
+        for m in nieuw:
+            if stuur_whatsapp(cfg, melding_tekst(m)):
+                verstuurd.add(m["id"])
+            time.sleep(3)
+    if nieuw:
+        log(f"WhatsApp: {len(verstuurd)} van {len(nieuw)} nieuwe meldingen doorgestuurd")
+    # Onthoud alles wat gelukt is, plus alles ouder dan 24 uur (die sturen we nooit meer)
+    schrijf_json(WHATSAPP_GEMELD, sorted(gemeld | verstuurd | {m["id"] for m in meldingen if m not in nieuw}))
+
+
+def test_whatsapp() -> int:
+    cfg = lees_whatsapp()
+    if cfg is None:
+        log(f"Geen instellingen gevonden in {WHATSAPP_CFG}")
+        return 1
+    ok = stuur_whatsapp(cfg, f"*Uitrukmonitor Zeist–De Bilt*\nTestbericht: WhatsApp-meldingen werken!\n{SITE_URL}")
+    log("Testbericht verstuurd, kijk op je telefoon." if ok else "Testbericht NIET verstuurd, zie de melding hierboven.")
+    return 0 if ok else 1
+
 # ---------------------------------------------------------------- hoofdprogramma
 def main() -> int:
+    if "--test-whatsapp" in sys.argv:
+        return test_whatsapp()
     offline = "--offline" in sys.argv  # alleen herberekenen, niets ophalen
     DATA.mkdir(exist_ok=True)
 
@@ -364,6 +458,8 @@ def main() -> int:
     cache = lees_json(GEOCACHE, {})
     meldingen = bouw_meldingen(archief["berichten"], cache, online=not offline)
     schrijf_json(GEOCACHE, dict(sorted(cache.items())))
+    if not offline:
+        meld_nieuwe(meldingen)
 
     oud = lees_json(MELDINGEN, {})
     if oud.get("meldingen") == meldingen:

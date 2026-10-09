@@ -38,7 +38,7 @@ if %errorlevel%==0 (
 
 rem 3. Alleen opslaan als er echt iets veranderd is
 rem    (data, plus website-bestanden die Claude heeft bijgewerkt)
-git add data index.html windows\verzamelen.bat
+git add data index.html scripts\collect.py windows\verzamelen.bat windows\whatsapp_instellen.bat .gitignore
 git diff --cached --quiet
 if %errorlevel%==0 (
   echo Geen nieuwe meldingen om op te slaan. >> "%LOG%"
