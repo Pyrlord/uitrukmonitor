@@ -95,6 +95,582 @@
    "feed": "Bilthoven",
    "link": "",
    "bron": "archief alarmeringen.nl (handmatig overgenomen 8 okt 2026)"
+  },
+  {
+   "tekst": "p 2 bmd-01 brandgerucht detectie: algemeen fraterhuis st. jozef schorteldoeksesteeg de bilt 096631",
+   "omschrijving": "Brandgerucht op Schorteldoeksesteeg in De Bilt",
+   "tijd": "2026-09-29T18:53:20+00:00",
+   "feed": "De Bilt",
+   "link": "https://alarmeringen.nl/utrecht/de-bilt/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 2 bmd-01 brandgerucht detectie: algemeen berg en bosch geb. 60 medisch centrum professor br bilthoven 091034",
+   "omschrijving": "Brandgerucht in Bilthoven",
+   "tijd": "2026-09-27T03:12:58+00:00",
+   "feed": "Bilthoven",
+   "link": "https://alarmeringen.nl/utrecht/bilthoven/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 2 bmd-01 br buiten kikkerpad groenekan 091131",
+   "omschrijving": "Buitenbrand in Groenekan",
+   "tijd": "2026-09-25T15:10:20+00:00",
+   "feed": "Groenekan",
+   "link": "https://alarmeringen.nl/utrecht/groenekan/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 2 bmd-02 stank/hind. lucht gaslucht buiten koningin wilhelminaweg groenekan 090931",
+   "omschrijving": "Gaslucht op Koningin Wilhelminaweg in Groenekan",
+   "tijd": "2026-09-24T22:23:59+00:00",
+   "feed": "Groenekan",
+   "link": "https://alarmeringen.nl/utrecht/groenekan/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 2 bmd-02 brandgerucht biltse rading blauwkapelseweg de bilt 090931",
+   "omschrijving": "Brandgerucht op Blauwkapelseweg in De Bilt",
+   "tijd": "2026-09-24T13:52:15+00:00",
+   "feed": "De Bilt",
+   "link": "https://alarmeringen.nl/utrecht/de-bilt/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 2 bmd-02 br berm/bosschage blauwkapelseweg de bilt 090831",
+   "omschrijving": "Brandweer met gepaste spoed naar Blauwkapelseweg in De Bilt",
+   "tijd": "2026-09-24T13:43:18+00:00",
+   "feed": "De Bilt",
+   "link": "https://alarmeringen.nl/utrecht/de-bilt/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 1 bmd-05 ongeval gev. stof gaslekkage buiten gezichtslaan bilthoven 098094 096531",
+   "omschrijving": "Gaslek op Gezichtslaan in Bilthoven",
+   "tijd": "2026-09-23T12:37:39+00:00",
+   "feed": "Bilthoven",
+   "link": "https://alarmeringen.nl/utrecht/bilthoven/55867194/p2000-gaslek-op-gezichtslaan-in-bilthoven.html",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 1 bmd-05 ongeval gev. stof gaslekkage buiten gezichtslaan bilthoven 098091",
+   "omschrijving": "Gaslek op Gezichtslaan in Bilthoven",
+   "tijd": "2026-09-23T12:37:39+00:00",
+   "feed": "Bilthoven",
+   "link": "https://alarmeringen.nl/utrecht/bilthoven/55867194/p2000-gaslek-op-gezichtslaan-in-bilthoven.html",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 1 bmd-05 ongeval gev. stof gaslekkage buiten gezichtslaan bilthoven 098531",
+   "omschrijving": "Gaslek op Gezichtslaan in Bilthoven",
+   "tijd": "2026-09-23T12:28:59+00:00",
+   "feed": "Bilthoven",
+   "link": "https://alarmeringen.nl/utrecht/bilthoven/55867194/p2000-gaslek-op-gezichtslaan-in-bilthoven.html",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 1 bmd-05 ongeval fiets hercules segherslaan bilthoven 098531",
+   "omschrijving": "Ongeval op Hercules Segherslaan in Bilthoven",
+   "tijd": "2026-09-23T08:54:20+00:00",
+   "feed": "Bilthoven",
+   "link": "https://alarmeringen.nl/utrecht/bilthoven/55866273/p2000-ambulance-met-spoed-naar-bilthoven.html",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 1 bmd-05 ongeval fiets hercules segherslaan bilthoven 091034",
+   "omschrijving": "Ongeval op Hercules Segherslaan in Bilthoven",
+   "tijd": "2026-09-23T08:52:54+00:00",
+   "feed": "Bilthoven",
+   "link": "https://alarmeringen.nl/utrecht/bilthoven/55866273/p2000-ambulance-met-spoed-naar-bilthoven.html",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 1 bmd-05 ongeval fiets hercules segherslaan bilthoven 098591 096531",
+   "omschrijving": "Ongeval op Hercules Segherslaan in Bilthoven",
+   "tijd": "2026-09-23T08:51:27+00:00",
+   "feed": "Bilthoven",
+   "link": "https://alarmeringen.nl/utrecht/bilthoven/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 2 bmd-02 brandgerucht detectie: rook/hitte psytrec 2.0 bv n237 re - amersfoortseweg bosch en duin 096631",
+   "omschrijving": "Brandgerucht op Amersfoortseweg in Bosch En Duin",
+   "tijd": "2026-09-19T09:15:00+00:00",
+   "feed": "Bosch en Duin",
+   "link": "https://alarmeringen.nl/utrecht/bosch-en-duin/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 2 bmd-03 stormschade n238 li - dolderseweg den dolder 096531",
+   "omschrijving": "Stormschade op Dolderseweg in Den Dolder",
+   "tijd": "2026-09-19T02:17:37+00:00",
+   "feed": "Den Dolder",
+   "link": "https://alarmeringen.nl/utrecht/den-dolder/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 2 bmd-02 dier in problemen veetakel kerkdijk westbroek 092378 092380",
+   "omschrijving": "Dier in problemen op Kerkdijk in Westbroek",
+   "tijd": "2026-09-18T14:19:46+00:00",
+   "feed": "Westbroek",
+   "link": "https://alarmeringen.nl/utrecht/westbroek/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 2 bmd-02 dier in problemen kerkdijk westbroek 091131",
+   "omschrijving": "Dier in problemen op Kerkdijk in Westbroek",
+   "tijd": "2026-09-18T14:16:22+00:00",
+   "feed": "Westbroek",
+   "link": "https://alarmeringen.nl/utrecht/westbroek/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 1 bmd-01 stank/hind. lucht gaslucht binnen groenekanseweg de bilt 098031",
+   "omschrijving": "Gaslucht op Groenekanseweg in De Bilt",
+   "tijd": "2026-09-16T23:49:59+00:00",
+   "feed": "De Bilt",
+   "link": "https://alarmeringen.nl/utrecht/de-bilt/55839761/p2000-gaslucht-op-groenekanseweg-in-de-bilt.html",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 2 bmd-04 br buiten graaf floris v weg hollandsche rading 091044",
+   "omschrijving": "Buitenbrand op Graaf Floris V weg in Hollandsche Rading",
+   "tijd": "2026-09-15T17:18:55+00:00",
+   "feed": "Hollandsche Rading",
+   "link": "https://alarmeringen.nl/utrecht/hollandsche-rading/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 2 bmd-04 br buiten graaf floris v weg hollandsche rading 091044",
+   "omschrijving": "Buitenbrand op Graaf Floris V weg in Hollandsche Rading",
+   "tijd": "2026-09-15T15:33:41+00:00",
+   "feed": "Hollandsche Rading",
+   "link": "https://alarmeringen.nl/utrecht/hollandsche-rading/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 2 bmd-04 br buiten graaf floris v weg hollandsche rading 091034",
+   "omschrijving": "Buitenbrand op Graaf Floris V weg in Hollandsche Rading",
+   "tijd": "2026-09-15T15:32:42+00:00",
+   "feed": "Hollandsche Rading",
+   "link": "https://alarmeringen.nl/utrecht/hollandsche-rading/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 1 bmd-03 ass. ambu zorgvliet de bilt 090831",
+   "omschrijving": "Brandweer met spoed naar Zorgvliet in De Bilt",
+   "tijd": "2026-09-10T12:25:57+00:00",
+   "feed": "De Bilt",
+   "link": "https://alarmeringen.nl/utrecht/de-bilt/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 1 bmd-03 ass. ambu afhijsen zorgvliet de bilt 094852 094831",
+   "omschrijving": "Assistentie ambulance voor afhijsen patiënt op Zorgvliet in De Bilt",
+   "tijd": "2026-09-10T12:25:52+00:00",
+   "feed": "De Bilt",
+   "link": "https://alarmeringen.nl/utrecht/de-bilt/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 1 bmd-02 middel br br woning dak gramserweg austerlitz 096434",
+   "omschrijving": "Woningbrand op Gramserweg in Austerlitz",
+   "tijd": "2026-09-10T08:11:26+00:00",
+   "feed": "Austerlitz",
+   "link": "https://alarmeringen.nl/utrecht/austerlitz/55810198/p2000-woningbrand-op-gramserweg-in-austerlitz.html",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 1 bmd-02 br woning dak gramserweg austerlitz 096652 096631",
+   "omschrijving": "Woningbrand op Gramserweg in Austerlitz",
+   "tijd": "2026-09-10T08:11:26+00:00",
+   "feed": "Austerlitz",
+   "link": "https://alarmeringen.nl/utrecht/austerlitz/55810198/p2000-woningbrand-op-gramserweg-in-austerlitz.html",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 1 bmd-02 middel br br woning dak gramserweg austerlitz 095131 098494",
+   "omschrijving": "Woningbrand op Gramserweg in Austerlitz",
+   "tijd": "2026-09-10T08:09:46+00:00",
+   "feed": "Austerlitz",
+   "link": "https://alarmeringen.nl/utrecht/austerlitz/55810198/p2000-woningbrand-op-gramserweg-in-austerlitz.html",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 2 bmd-01 dier in problemen de beaufortweg austerlitz 096652",
+   "omschrijving": "Dier in problemen op De Beaufortweg in Austerlitz",
+   "tijd": "2026-09-09T12:07:01+00:00",
+   "feed": "Austerlitz",
+   "link": "https://alarmeringen.nl/utrecht/austerlitz/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 2 bmd-01 brandgerucht detectie: algemeen stg reinaerde loc dennendalweg dennendalweg den dolder 096531",
+   "omschrijving": "Brandgerucht op Dennendalweg in Den Dolder",
+   "tijd": "2026-09-07T22:16:31+00:00",
+   "feed": "Den Dolder",
+   "link": "https://alarmeringen.nl/utrecht/den-dolder/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 2 bmd-01 stormschade burgemeester huydecoperweg westbroek 091131",
+   "omschrijving": "Stormschade op Burgemeester Huydecoperweg in Westbroek",
+   "tijd": "2026-09-04T09:04:48+00:00",
+   "feed": "Westbroek",
+   "link": "https://alarmeringen.nl/utrecht/westbroek/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 5 bmd-04 pel. gw nbb 1 zeer gr. br br gebouw amersfoortseweg bosch en duin 098694 093364 093386",
+   "omschrijving": "Brandweer naar Amersfoortseweg in Bosch En Duin voor Gebouwbrand zeer grote brand",
+   "tijd": "2026-09-01T18:24:58+00:00",
+   "feed": "Bosch en Duin",
+   "link": "https://alarmeringen.nl/utrecht/bosch-en-duin/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 5 bmd-11 br bos drone buiten uitbr.: zeer hoog biltseweg bosch en duin 099289 099189",
+   "omschrijving": "Bosbrand op Biltseweg in Bosch En Duin",
+   "tijd": "2026-09-01T18:23:46+00:00",
+   "feed": "Bosch en Duin",
+   "link": "https://alarmeringen.nl/utrecht/bosch-en-duin/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 5 bmd-11 br bos uitbr.: zeer hoog biltseweg bosch en duin 098894",
+   "omschrijving": "Bosbrand op Biltseweg in Bosch En Duin",
+   "tijd": "2026-09-01T18:20:16+00:00",
+   "feed": "Bosch en Duin",
+   "link": "https://alarmeringen.nl/utrecht/bosch-en-duin/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 5 bmd-11 br bos uitbr.: zeer hoog biltseweg bosch en duin 099294 098494 096644 093544 090744 091044",
+   "omschrijving": "Bosbrand op Biltseweg in Bosch En Duin",
+   "tijd": "2026-09-01T18:06:05+00:00",
+   "feed": "Bosch en Duin",
+   "link": "https://alarmeringen.nl/utrecht/bosch-en-duin/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 5 bmd-03 grote br br gebouw amersfoortseweg bosch en duin 090831",
+   "omschrijving": "Brandweer naar Amersfoortseweg in Bosch En Duin voor Gebouwbrand grote brand",
+   "tijd": "2026-09-01T17:57:01+00:00",
+   "feed": "Bosch en Duin",
+   "link": "https://alarmeringen.nl/utrecht/bosch-en-duin/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 5 bmd-03 middel br br gebouw amersfoortseweg bosch en duin 095169 092265 092286",
+   "omschrijving": "De gebouwbrand, die naar Amersfoortseweg in Bosch En Duin voor Gebouwbrand middelbrand",
+   "tijd": "2026-09-01T17:55:46+00:00",
+   "feed": "Bosch en Duin",
+   "link": "https://alarmeringen.nl/utrecht/bosch-en-duin/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 5 bmd-03 middel br br gebouw amersfoortseweg bosch en duin 096531 098052",
+   "omschrijving": "De gebouwbrand, die naar Amersfoortseweg in Bosch En Duin voor Gebouwbrand middelbrand",
+   "tijd": "2026-09-01T17:46:05+00:00",
+   "feed": "Bosch en Duin",
+   "link": "https://alarmeringen.nl/utrecht/bosch-en-duin/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 5 bmd-03 br gebouw amersfoortseweg bosch en duin 098631",
+   "omschrijving": "Ambulance naar Amersfoortseweg in Bosch En Duin voor Gebouwbrand",
+   "tijd": "2026-09-01T17:44:43+00:00",
+   "feed": "Bosch en Duin",
+   "link": "https://alarmeringen.nl/utrecht/bosch-en-duin/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 1 bmd-01 br buiten jozef israelslaan bosch en duin 096631",
+   "omschrijving": "Buitenbrand op Jozef Israëlslaan in Bosch En Duin",
+   "tijd": "2026-08-16T15:06:37+00:00",
+   "feed": "Bosch en Duin",
+   "link": "https://alarmeringen.nl/utrecht/bosch-en-duin/55704867/p2000-buitenbrand-op-jozef-israelslaan-in-bosch-en-duin.html",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 1 bmd-01 reanimatie kikkerpad groenekan 091131",
+   "omschrijving": "Assistentie bij reanimatie in Groenekan",
+   "tijd": "2026-08-16T14:05:31+00:00",
+   "feed": "Groenekan",
+   "link": "https://alarmeringen.nl/utrecht/groenekan/55704629/p2000-assistentie-bij-reanimatie-in-groenekan.html",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 1 bmd-01 reanimatie kikkerpad groenekan 090931",
+   "omschrijving": "Assistentie bij reanimatie in Groenekan",
+   "tijd": "2026-08-16T14:05:12+00:00",
+   "feed": "Groenekan",
+   "link": "https://alarmeringen.nl/utrecht/groenekan/55704626/p2000-assistentie-bij-reanimatie-in-groenekan.html",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 2 bmd-01 stormschade nieuwe weteringseweg groenekan 093952 091034",
+   "omschrijving": "Stormschade op Nieuwe Weteringseweg in Groenekan",
+   "tijd": "2026-08-15T13:43:42+00:00",
+   "feed": "Groenekan",
+   "link": "https://alarmeringen.nl/utrecht/groenekan/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 1 bmd-04 middel br br gezondheidszorg detectie: algemeen willem arntsz hoeve wier gesloten citroenvlinder den dolder 095169",
+   "omschrijving": "Brandmelding op Citroenvlinder in Den Dolder",
+   "tijd": "2026-08-14T21:53:19+00:00",
+   "feed": "Den Dolder",
+   "link": "https://alarmeringen.nl/utrecht/den-dolder/55697774/p2000-brandmelding-op-citroenvlinder-in-den-dolder.html",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 1 bmd-04 br gezondheidszorg detectie: algemeen willem arntsz hoeve wier gesloten citroenvlinder den dolder 098494 096531 096631",
+   "omschrijving": "Brandmelding op Citroenvlinder in Den Dolder",
+   "tijd": "2026-08-14T21:53:19+00:00",
+   "feed": "Den Dolder",
+   "link": "https://alarmeringen.nl/utrecht/den-dolder/55697774/p2000-brandmelding-op-citroenvlinder-in-den-dolder.html",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 1 bmd-04 middel br br gezondheidszorg detectie: algemeen willem arntsz hoeve wier gesloten citroenvlinder den dolder 098052",
+   "omschrijving": "Brandmelding op Citroenvlinder in Den Dolder",
+   "tijd": "2026-08-14T21:44:13+00:00",
+   "feed": "Den Dolder",
+   "link": "https://alarmeringen.nl/utrecht/den-dolder/55697774/p2000-brandmelding-op-citroenvlinder-in-den-dolder.html",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 1 bmd-04 middel br br gezondheidszorg detectie: algemeen willem arntsz hoeve wier gesloten citroenvlinder den dolder",
+   "omschrijving": "Brandmelding op Citroenvlinder in Den Dolder",
+   "tijd": "2026-08-14T21:43:58+00:00",
+   "feed": "Den Dolder",
+   "link": "https://alarmeringen.nl/utrecht/den-dolder/55697774/p2000-brandmelding-op-citroenvlinder-in-den-dolder.html",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 1 bmd-04 br gezondheidszorg detectie: algemeen willem arntsz hoeve wier gesloten citroenvlinder den dolder 093534",
+   "omschrijving": "Brandmelding op Citroenvlinder in Den Dolder",
+   "tijd": "2026-08-14T21:37:56+00:00",
+   "feed": "Den Dolder",
+   "link": "https://alarmeringen.nl/utrecht/den-dolder/55697774/p2000-brandmelding-op-citroenvlinder-in-den-dolder.html",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 1 bmd-01 br buiten oude postweg austerlitz 096631",
+   "omschrijving": "Buitenbrand op Oude Postweg in Austerlitz",
+   "tijd": "2026-08-13T12:35:18+00:00",
+   "feed": "Austerlitz",
+   "link": "https://alarmeringen.nl/utrecht/austerlitz/55690885/p2000-buitenbrand-op-oude-postweg-in-austerlitz.html",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 2 bmd-07 br buiten n417 - tolakkerweg hollandsche rading 091044",
+   "omschrijving": "Buitenbrand op Tolakkerweg in Hollandsche Rading",
+   "tijd": "2026-08-12T13:33:09+00:00",
+   "feed": "Hollandsche Rading",
+   "link": "https://alarmeringen.nl/utrecht/hollandsche-rading/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 1 bmd-01 br woning woonhuis biltseweg bosch en duin 096631",
+   "omschrijving": "Woningbrand op Biltseweg in Bosch En Duin",
+   "tijd": "2026-08-07T03:02:11+00:00",
+   "feed": "Bosch en Duin",
+   "link": "https://alarmeringen.nl/utrecht/bosch-en-duin/55663265/p2000-woningbrand-op-biltseweg-in-bosch-en-duin.html",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 1 bmd-01 reanimatie korssesteeg westbroek 091034",
+   "omschrijving": "Assistentie bij reanimatie op Korssesteeg in Westbroek",
+   "tijd": "2026-07-29T04:27:54+00:00",
+   "feed": "Westbroek",
+   "link": "https://alarmeringen.nl/utrecht/westbroek/55624620/p2000-assistentie-bij-reanimatie-op-korssesteeg-in-westbroek.html",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 2 bmd-03 stank/hind. lucht gaslucht binnen koningin wilhelminaweg groenekan 090931",
+   "omschrijving": "Gaslucht op Koningin Wilhelminaweg in Groenekan",
+   "tijd": "2026-07-28T15:18:12+00:00",
+   "feed": "Groenekan",
+   "link": "https://alarmeringen.nl/utrecht/groenekan/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 2 bmd-01 stank/hind. lucht meting dennenweg bosch en duin 096631",
+   "omschrijving": "Brandweer met gepaste spoed naar Dennenweg in Bosch En Duin",
+   "tijd": "2026-07-22T16:19:39+00:00",
+   "feed": "Bosch en Duin",
+   "link": "https://alarmeringen.nl/utrecht/bosch-en-duin/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 1 bmd-02 ass. ambu dorpsweg maartensdijk 094852",
+   "omschrijving": "Brandweer met spoed naar Dorpsweg in Maartensdijk",
+   "tijd": "2026-07-15T07:37:07+00:00",
+   "feed": "Maartensdijk",
+   "link": "https://alarmeringen.nl/utrecht/maartensdijk/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 1 bmd-02 ass. ambu tilassistentie dorpsweg maartensdijk 091034",
+   "omschrijving": "Assistentie ambulance op Dorpsweg in Maartensdijk",
+   "tijd": "2026-07-15T07:22:59+00:00",
+   "feed": "Maartensdijk",
+   "link": "https://alarmeringen.nl/utrecht/maartensdijk/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 2 bmd-05 stormschade villa hoefstaete vossenlaan bosch en duin 096631",
+   "omschrijving": "Stormschade op Vossenlaan in Bosch En Duin",
+   "tijd": "2026-06-28T04:55:50+00:00",
+   "feed": "Bosch en Duin",
+   "link": "https://alarmeringen.nl/utrecht/bosch-en-duin/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 2 bmd-05 stormschade villa hoefstaete vossenlaan bosch en duin p96631",
+   "omschrijving": "Stormschade op Vossenlaan in Bosch En Duin",
+   "tijd": "2026-06-28T04:55:50+00:00",
+   "feed": "Bosch en Duin",
+   "link": "https://alarmeringen.nl/utrecht/bosch-en-duin/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 1 bmd-01 br wegvervoer auto esso nijpoort bst a27 li groenekan 091034",
+   "omschrijving": "Voertuigbrand op A27 in Groenekan",
+   "tijd": "2026-06-23T04:24:59+00:00",
+   "feed": "Groenekan",
+   "link": "https://alarmeringen.nl/utrecht/groenekan/55428660/p2000-voertuigbrand-op-a27-in-groenekan.html",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 2 bmd-01 reanimatie zichtscherm ruigenhoeksedijk groenekan 090774",
+   "omschrijving": "Assistentie bij reanimatie op Ruigenhoeksedijk in Groenekan",
+   "tijd": "2026-06-21T11:24:41+00:00",
+   "feed": "Groenekan",
+   "link": "https://alarmeringen.nl/utrecht/groenekan/55418085/p2000-ambulance-met-spoed-naar-groenekan.html",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 1 bmd-01 reanimatie ruigenhoeksedijk groenekan 090931",
+   "omschrijving": "Assistentie bij reanimatie op Ruigenhoeksedijk in Groenekan",
+   "tijd": "2026-06-21T11:22:18+00:00",
+   "feed": "Groenekan",
+   "link": "https://alarmeringen.nl/utrecht/groenekan/55418085/p2000-ambulance-met-spoed-naar-groenekan.html",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 2 bmd-06 nacontrole a27 li 89,9 hollandsche rading 142131",
+   "omschrijving": "Nacontrole op A27 in Hollandsche Rading",
+   "tijd": "2026-05-30T18:35:39+00:00",
+   "feed": "Hollandsche Rading",
+   "link": "https://alarmeringen.nl/utrecht/hollandsche-rading/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 2 bmd-01 br container esso nijpoort bst a27 li groenekan 091034",
+   "omschrijving": "Buitenbrand (container) op A27 in Groenekan",
+   "tijd": "2026-04-28T07:32:24+00:00",
+   "feed": "Groenekan",
+   "link": "https://alarmeringen.nl/utrecht/groenekan/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 1 bmd-04 reanimatie oude postweg austerlitz 096631",
+   "omschrijving": "Assistentie bij reanimatie op Oude Postweg in Austerlitz",
+   "tijd": "2026-04-21T13:52:57+00:00",
+   "feed": "Austerlitz",
+   "link": "https://alarmeringen.nl/utrecht/austerlitz/55121136/p2000-assistentie-bij-reanimatie-op-oude-postweg-in-austerlitz.html",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 2 bmd-03 dienstverlening groenedijksepad westbroek 094831",
+   "omschrijving": "Brandweer met gepaste spoed naar Westbroek",
+   "tijd": "2026-04-09T15:05:20+00:00",
+   "feed": "Westbroek",
+   "link": "https://alarmeringen.nl/utrecht/westbroek/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 2 bmd-03 dienstverlening groenedijksepad westbroek 091034",
+   "omschrijving": "Brandweer met gepaste spoed naar Westbroek",
+   "tijd": "2026-04-09T15:03:22+00:00",
+   "feed": "Westbroek",
+   "link": "https://alarmeringen.nl/utrecht/westbroek/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 2 bmd-03 dienstverlening groenedijksepad westbroek 090931",
+   "omschrijving": "Brandweer met gepaste spoed naar Westbroek",
+   "tijd": "2026-04-09T15:02:01+00:00",
+   "feed": "Westbroek",
+   "link": "https://alarmeringen.nl/utrecht/westbroek/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 1 bmd-03 voertuig te water a27 re 89,0 hollandsche rading 094411 098591 091034",
+   "omschrijving": "Voertuig te water op A27 in Hollandsche Rading",
+   "tijd": "2026-03-29T16:49:55+00:00",
+   "feed": "Hollandsche Rading",
+   "link": "https://alarmeringen.nl/utrecht/hollandsche-rading/55018773/p2000-voertuig-te-water-op-a27-in-hollandsche-rading.html",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 1 bmd-01 reanimatie holsblokkenweg westbroek 091131",
+   "omschrijving": "Assistentie bij reanimatie op Holsblokkenweg in Westbroek",
+   "tijd": "2026-02-03T21:32:41+00:00",
+   "feed": "Westbroek",
+   "link": "https://alarmeringen.nl/utrecht/westbroek/54780176/p2000-assistentie-bij-reanimatie-op-holsblokkenweg-in-westbroek.html",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 2 bmd-02 br afval kooijdijk westbroek 091131",
+   "omschrijving": "Afvalbrand op Kooijdijk in Westbroek",
+   "tijd": "2026-01-20T15:02:15+00:00",
+   "feed": "Westbroek",
+   "link": "https://alarmeringen.nl/utrecht/westbroek/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 1 bmd-03 br bijgebouw wolkammerweg westbroek 091034",
+   "omschrijving": "Brand in bijgebouw op Wolkammerweg in Westbroek",
+   "tijd": "2026-01-15T21:03:48+00:00",
+   "feed": "Westbroek",
+   "link": "https://alarmeringen.nl/utrecht/westbroek/54694798/p2000-brand-in-bijgebouw-op-wolkammerweg-in-westbroek.html",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 2 bmd-03 br wegvervoer caravan nedereindse vaartdijk westbroek 091131",
+   "omschrijving": "Voertuigbrand in Westbroek",
+   "tijd": "2025-12-31T17:14:09+00:00",
+   "feed": "Westbroek",
+   "link": "https://alarmeringen.nl/utrecht/westbroek/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 2 bmd-03 br wegvervoer aanhanger dr. welfferweg westbroek 091131",
+   "omschrijving": "Voertuigbrand op Dr. Welfferweg in Westbroek",
+   "tijd": "2025-12-31T00:34:03+00:00",
+   "feed": "Westbroek",
+   "link": "https://alarmeringen.nl/utrecht/westbroek/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 2 bmd-03 br container ondergronds wolkammerweg holsblokkenweg westbroek 091131",
+   "omschrijving": "Buitenbrand (container) op Wolkammerweg in Westbroek",
+   "tijd": "2025-12-24T14:55:41+00:00",
+   "feed": "Westbroek",
+   "link": "https://alarmeringen.nl/utrecht/westbroek/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 1 intrekken alarm brw hv overig gaslekkage binnen asserstraat huis ter heide dr",
+   "omschrijving": "Gaslek op Asserstraat in Huis Ter Heide",
+   "tijd": "2023-05-01T15:21:24+00:00",
+   "feed": "Huis ter Heide",
+   "link": "https://alarmeringen.nl/drenthe/huis-ter-heide/45294678/p2000-gaslek-op-asserstraat-in-huis-ter-heide.html",
+   "bron": "rss"
   }
  ]
 }
