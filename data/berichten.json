@@ -1,6 +1,30 @@
 {
  "berichten": [
   {
+   "tekst": "p 2 bmd-02 brandgerucht detectie: hand stichting hilverzorg - locatie wdw woudenbergseweg zeist 096631",
+   "omschrijving": "Brandgerucht op Woudenbergseweg in Zeist",
+   "tijd": "2026-10-10T18:54:52+00:00",
+   "feed": "Zeist",
+   "link": "https://alarmeringen.nl/utrecht/zeist/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 5 bmd-13 pel. gw nbb 1 br bos uitbr.: zeer hoog waterlooweg gramserweg austerlitz 098694 096464 096486 095169",
+   "omschrijving": "Brandweer naar Waterlooweg in Austerlitz voor bosbrand",
+   "tijd": "2026-10-10T07:34:30+00:00",
+   "feed": "Austerlitz",
+   "link": "https://alarmeringen.nl/utrecht/austerlitz/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 5 bmd-11 br bos uitbr.: zeer hoog waterlooweg gramserweg austerlitz 099294 098094 096644 095144 095444 095244",
+   "omschrijving": "Bosbrand op Waterlooweg in Austerlitz",
+   "tijd": "2026-10-10T07:14:48+00:00",
+   "feed": "Austerlitz",
+   "link": "https://alarmeringen.nl/utrecht/austerlitz/",
+   "bron": "rss"
+  },
+  {
    "tekst": "P 2 BMD-02 CO-melder Pleineslaan Den Dolder 096531",
    "omschrijving": "",
    "tijd": "2026-10-07T13:57:00+00:00",

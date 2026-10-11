@@ -11,6 +11,13 @@
   "lat": 52.14204,
   "lon": 5.20508
  },
+ "Zeist|gramserweg": {
+  "straat": "Gramserweg",
+  "woonplaats": "Austerlitz",
+  "lat": 52.08004,
+  "lon": 5.31364
+ },
+ "Zeist|hoog waterlooweg gramserweg": null,
  "Zeist|huis ter heideweg": {
   "straat": "Huis ter Heideweg",
   "woonplaats": "Huis ter Heide",
@@ -53,10 +60,18 @@
   "lat": 52.07435,
   "lon": 5.25395
  },
+ "Zeist|waterlooweg": {
+  "straat": "Waterlooweg",
+  "woonplaats": "Austerlitz",
+  "lat": 52.07716,
+  "lon": 5.31294
+ },
+ "Zeist|waterlooweg gramserweg": null,
  "Zeist|woudenbergseweg": {
   "straat": "Woudenbergseweg",
   "woonplaats": "Austerlitz",
   "lat": 52.0879,
   "lon": 5.30604
- }
+ },
+ "Zeist|zeer hoog waterlooweg gramserweg": null
 }

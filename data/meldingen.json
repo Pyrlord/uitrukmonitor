@@ -1,7 +1,69 @@
 {
- "bijgewerkt": "2026-10-08T19:26:37+00:00",
+ "bijgewerkt": "2026-10-11T12:17:56+00:00",
  "bron": "alarmeringen.nl",
  "meldingen": [
+  {
+   "id": "b659de310c606211",
+   "time": "2026-10-10T18:54:52+00:00",
+   "place": "Zeist",
+   "g": "Zeist",
+   "type": "Brandgerucht / rookmelding",
+   "prio": 2,
+   "street": "Woudenbergseweg",
+   "lat": 52.0879,
+   "lon": 5.30604,
+   "precisie": "straat",
+   "raw": "p 2 bmd-02 brandgerucht detectie: hand stichting hilverzorg - locatie wdw woudenbergseweg zeist 096631",
+   "caps": [
+    "096631"
+   ],
+   "ingetrokken": false,
+   "link": "https://alarmeringen.nl/utrecht/zeist/"
+  },
+  {
+   "id": "a35895022996cff7",
+   "time": "2026-10-10T07:34:30+00:00",
+   "place": "Austerlitz",
+   "g": "Zeist",
+   "type": "Buitenbrand",
+   "prio": 2,
+   "street": "Gramserweg",
+   "lat": 52.08004,
+   "lon": 5.31364,
+   "precisie": "straat",
+   "raw": "p 5 bmd-13 pel. gw nbb 1 br bos uitbr.: zeer hoog waterlooweg gramserweg austerlitz 098694 096464 096486 095169",
+   "caps": [
+    "098694",
+    "096464",
+    "096486",
+    "095169"
+   ],
+   "ingetrokken": false,
+   "link": "https://alarmeringen.nl/utrecht/austerlitz/"
+  },
+  {
+   "id": "98a74e336cded84d",
+   "time": "2026-10-10T07:14:48+00:00",
+   "place": "Austerlitz",
+   "g": "Zeist",
+   "type": "Buitenbrand",
+   "prio": 2,
+   "street": "Waterlooweg",
+   "lat": 52.07716,
+   "lon": 5.31294,
+   "precisie": "straat",
+   "raw": "p 5 bmd-11 br bos uitbr.: zeer hoog waterlooweg gramserweg austerlitz 099294 098094 096644 095144 095444 095244",
+   "caps": [
+    "099294",
+    "098094",
+    "096644",
+    "095144",
+    "095444",
+    "095244"
+   ],
+   "ingetrokken": false,
+   "link": "https://alarmeringen.nl/utrecht/austerlitz/"
+  },
   {
    "id": "546c6d485a70de93",
    "time": "2026-10-07T13:57:00+00:00",
