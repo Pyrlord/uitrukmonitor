@@ -1,7 +1,25 @@
 {
- "bijgewerkt": "2026-10-12T07:33:39+00:00",
+ "bijgewerkt": "2026-10-12T12:30:39+00:00",
  "bron": "alarmeringen.nl",
  "meldingen": [
+  {
+   "id": "e48ee0f94956aa08",
+   "time": "2026-10-12T09:56:59+00:00",
+   "place": "Den Dolder",
+   "g": "Zeist",
+   "type": "Reanimatie (assistentie)",
+   "prio": 1,
+   "street": "Dagpauwoog",
+   "lat": 52.14507,
+   "lon": 5.24643,
+   "precisie": "straat",
+   "raw": "p 1 bmd-02 reanimatie willem arntsz hoeve winkler dagpauwoog den dolder 096531",
+   "caps": [
+    "096531"
+   ],
+   "ingetrokken": false,
+   "link": "https://alarmeringen.nl/utrecht/den-dolder/55950677/p2000-assistentie-bij-reanimatie-op-dagpauwoog-in-den-dolder.html"
+  },
   {
    "id": "68ec99fb780aeef2",
    "time": "2026-10-11T22:09:37+00:00",
