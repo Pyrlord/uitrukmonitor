@@ -1,6 +1,14 @@
 {
  "berichten": [
   {
+   "tekst": "p 1 bmd-04 br bijgebouw kerkdijk westbroek 091131",
+   "omschrijving": "Brand in bijgebouw op Kerkdijk in Westbroek",
+   "tijd": "2026-10-11T22:09:37+00:00",
+   "feed": "Westbroek",
+   "link": "https://alarmeringen.nl/utrecht/westbroek/55948660/p2000-brand-in-bijgebouw-op-kerkdijk-in-westbroek.html",
+   "bron": "rss"
+  },
+  {
    "tekst": "p 2 bmd-02 brandgerucht detectie: hand stichting hilverzorg - locatie wdw woudenbergseweg zeist 096631",
    "omschrijving": "Brandgerucht op Woudenbergseweg in Zeist",
    "tijd": "2026-10-10T18:54:52+00:00",

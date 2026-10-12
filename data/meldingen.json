@@ -1,7 +1,25 @@
 {
- "bijgewerkt": "2026-10-11T12:17:56+00:00",
+ "bijgewerkt": "2026-10-12T07:33:39+00:00",
  "bron": "alarmeringen.nl",
  "meldingen": [
+  {
+   "id": "68ec99fb780aeef2",
+   "time": "2026-10-11T22:09:37+00:00",
+   "place": "Westbroek",
+   "g": "De Bilt",
+   "type": "Brand gebouw",
+   "prio": 1,
+   "street": "Kerkdijk",
+   "lat": 52.15542,
+   "lon": 5.11468,
+   "precisie": "straat",
+   "raw": "p 1 bmd-04 br bijgebouw kerkdijk westbroek 091131",
+   "caps": [
+    "091131"
+   ],
+   "ingetrokken": false,
+   "link": "https://alarmeringen.nl/utrecht/westbroek/55948660/p2000-brand-in-bijgebouw-op-kerkdijk-in-westbroek.html"
+  },
   {
    "id": "b659de310c606211",
    "time": "2026-10-10T18:54:52+00:00",
