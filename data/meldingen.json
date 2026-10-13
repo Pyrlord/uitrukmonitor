@@ -1,7 +1,25 @@
 {
- "bijgewerkt": "2026-10-12T12:30:39+00:00",
+ "bijgewerkt": "2026-10-13T07:51:52+00:00",
  "bron": "alarmeringen.nl",
  "meldingen": [
+  {
+   "id": "0876815628295e48",
+   "time": "2026-10-13T03:41:31+00:00",
+   "place": "Maartensdijk",
+   "g": "De Bilt",
+   "type": "Brand voertuig",
+   "prio": 1,
+   "street": "Prinses Margrietlaan",
+   "lat": 52.15529,
+   "lon": 5.18049,
+   "precisie": "straat",
+   "raw": "p 1 bmd-02 br wegvervoer auto prinses margrietlaan maartensdijk 091034",
+   "caps": [
+    "091034"
+   ],
+   "ingetrokken": false,
+   "link": "https://alarmeringen.nl/utrecht/maartensdijk/55954415/p2000-voertuigbrand-op-prinses-margrietlaan-in-maartensdijk.html"
+  },
   {
    "id": "e48ee0f94956aa08",
    "time": "2026-10-12T09:56:59+00:00",

@@ -1,6 +1,14 @@
 {
  "berichten": [
   {
+   "tekst": "p 1 bmd-02 br wegvervoer auto prinses margrietlaan maartensdijk 091034",
+   "omschrijving": "Voertuigbrand op Prinses Margrietlaan in Maartensdijk",
+   "tijd": "2026-10-13T03:41:31+00:00",
+   "feed": "Maartensdijk",
+   "link": "https://alarmeringen.nl/utrecht/maartensdijk/55954415/p2000-voertuigbrand-op-prinses-margrietlaan-in-maartensdijk.html",
+   "bron": "rss"
+  },
+  {
    "tekst": "p 1 bmd-02 reanimatie willem arntsz hoeve winkler dagpauwoog den dolder 096531",
    "omschrijving": "Assistentie bij reanimatie op Dagpauwoog in Den Dolder",
    "tijd": "2026-10-12T09:56:59+00:00",
