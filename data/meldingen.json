@@ -1,7 +1,44 @@
 {
- "bijgewerkt": "2026-10-13T07:51:52+00:00",
+ "bijgewerkt": "2026-10-14T13:15:31+00:00",
  "bron": "alarmeringen.nl",
  "meldingen": [
+  {
+   "id": "d5222b88e6dd5230",
+   "time": "2026-10-14T09:43:57+00:00",
+   "place": "Zeist",
+   "g": "Zeist",
+   "type": "Assistentie ambulance/politie",
+   "prio": 1,
+   "street": "De Clomp",
+   "lat": 52.08305,
+   "lon": 5.21813,
+   "precisie": "straat",
+   "raw": "p 1 bmd-02 ass. ambu de clomp zeist 096631",
+   "caps": [
+    "096631"
+   ],
+   "ingetrokken": false,
+   "link": "https://alarmeringen.nl/utrecht/zeist/"
+  },
+  {
+   "id": "58c38f75156febfe",
+   "time": "2026-10-13T23:07:09+00:00",
+   "place": "Den Dolder",
+   "g": "Zeist",
+   "type": "Assistentie ambulance/politie",
+   "prio": 1,
+   "street": "Hezer Enghweg",
+   "lat": 52.13776,
+   "lon": 5.2374,
+   "precisie": "straat",
+   "raw": "p 1 bmd-03 ass. ambu afhijsen hezer enghweg den dolder 096652 096531",
+   "caps": [
+    "096652",
+    "096531"
+   ],
+   "ingetrokken": false,
+   "link": "https://alarmeringen.nl/utrecht/den-dolder/"
+  },
   {
    "id": "0876815628295e48",
    "time": "2026-10-13T03:41:31+00:00",

@@ -1,6 +1,22 @@
 {
  "berichten": [
   {
+   "tekst": "p 1 bmd-02 ass. ambu de clomp zeist 096631",
+   "omschrijving": "Brandweer met spoed naar De Clomp in Zeist",
+   "tijd": "2026-10-14T09:43:57+00:00",
+   "feed": "Zeist",
+   "link": "https://alarmeringen.nl/utrecht/zeist/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 1 bmd-03 ass. ambu afhijsen hezer enghweg den dolder 096652 096531",
+   "omschrijving": "Assistentie ambulance voor afhijsen patiënt op Hezer Enghweg in Den Dolder",
+   "tijd": "2026-10-13T23:07:09+00:00",
+   "feed": "Den Dolder",
+   "link": "https://alarmeringen.nl/utrecht/den-dolder/",
+   "bron": "rss"
+  },
+  {
    "tekst": "p 1 bmd-02 br wegvervoer auto prinses margrietlaan maartensdijk 091034",
    "omschrijving": "Voertuigbrand op Prinses Margrietlaan in Maartensdijk",
    "tijd": "2026-10-13T03:41:31+00:00",

@@ -29,11 +29,23 @@
   "lat": 52.14507,
   "lon": 5.24643
  },
+ "Zeist|de clomp": {
+  "straat": "De Clomp",
+  "woonplaats": "Zeist",
+  "lat": 52.08305,
+  "lon": 5.21813
+ },
  "Zeist|gramserweg": {
   "straat": "Gramserweg",
   "woonplaats": "Austerlitz",
   "lat": 52.08004,
   "lon": 5.31364
+ },
+ "Zeist|hezer enghweg": {
+  "straat": "Hezer Enghweg",
+  "woonplaats": "Den Dolder",
+  "lat": 52.13776,
+  "lon": 5.2374
  },
  "Zeist|hoog waterlooweg gramserweg": null,
  "Zeist|huis ter heideweg": {
