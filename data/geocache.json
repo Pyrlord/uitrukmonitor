@@ -1,15 +1,81 @@
 {
+ "De Bilt|achterweteringseweg": {
+  "straat": "Achterweteringseweg",
+  "woonplaats": "Maartensdijk",
+  "lat": 52.1505,
+  "lon": 5.15258
+ },
+ "De Bilt|akker": {
+  "straat": "Akker",
+  "woonplaats": "De Bilt",
+  "lat": 52.11015,
+  "lon": 5.18774
+ },
+ "De Bilt|copijnlaan": {
+  "straat": "Copijnlaan",
+  "woonplaats": "Groenekan",
+  "lat": 52.12256,
+  "lon": 5.14929
+ },
+ "De Bilt|de holle bilt": {
+  "straat": "De Holle Bilt",
+  "woonplaats": "De Bilt",
+  "lat": 52.10453,
+  "lon": 5.19846
+ },
  "De Bilt|de rinnebeek sint laurensweg": {
   "straat": "Sint Laurensweg",
   "woonplaats": "De Bilt",
   "lat": 52.11233,
   "lon": 5.18644
  },
+ "De Bilt|dorpsweg": {
+  "straat": "Dorpsweg",
+  "woonplaats": "Maartensdijk",
+  "lat": 52.15822,
+  "lon": 5.18228
+ },
+ "De Bilt|jan provostlaan": {
+  "straat": "Jan Provostlaan",
+  "woonplaats": "Bilthoven",
+  "lat": 52.13192,
+  "lon": 5.19457
+ },
+ "De Bilt|kees boekelaan": {
+  "straat": "Kees Boekelaan",
+  "woonplaats": "Bilthoven",
+  "lat": 52.13474,
+  "lon": 5.19644
+ },
  "De Bilt|kerkdijk": {
   "straat": "Kerkdijk",
   "woonplaats": "Westbroek",
   "lat": 52.15542,
   "lon": 5.11468
+ },
+ "De Bilt|melkweg": {
+  "straat": "Melkweg",
+  "woonplaats": "Bilthoven",
+  "lat": 52.12184,
+  "lon": 5.18518
+ },
+ "De Bilt|neptunuslaan": {
+  "straat": "Neptunuslaan",
+  "woonplaats": "Bilthoven",
+  "lat": 52.119,
+  "lon": 5.1834
+ },
+ "De Bilt|nieuwe weteringseweg": {
+  "straat": "Nieuwe Weteringseweg",
+  "woonplaats": "Groenekan",
+  "lat": 52.13962,
+  "lon": 5.16868
+ },
+ "De Bilt|planetenbaan": {
+  "straat": "Planetenbaan",
+  "woonplaats": "Bilthoven",
+  "lat": 52.11888,
+  "lon": 5.18211
  },
  "De Bilt|prinses margrietlaan": {
   "straat": "Prinses Margrietlaan",
@@ -22,6 +88,18 @@
   "woonplaats": "Bilthoven",
   "lat": 52.14204,
   "lon": 5.20508
+ },
+ "De Bilt|utrechtseweg": {
+  "straat": "Utrechtseweg",
+  "woonplaats": "De Bilt",
+  "lat": 52.10256,
+  "lon": 5.18399
+ },
+ "De Bilt|weegschaal": {
+  "straat": "Weegschaal",
+  "woonplaats": "Bilthoven",
+  "lat": 52.12269,
+  "lon": 5.18305
  },
  "Zeist|dagpauwoog": {
   "straat": "Dagpauwoog",
@@ -41,6 +119,12 @@
   "lat": 52.08004,
   "lon": 5.31364
  },
+ "Zeist|grensweg": {
+  "straat": "Grensweg",
+  "woonplaats": "Austerlitz",
+  "lat": 52.08484,
+  "lon": 5.30103
+ },
  "Zeist|hezer enghweg": {
   "straat": "Hezer Enghweg",
   "woonplaats": "Den Dolder",
@@ -53,6 +137,18 @@
   "woonplaats": "Huis ter Heide",
   "lat": 52.10693,
   "lon": 5.25466
+ },
+ "Zeist|jagersingel": {
+  "straat": "Jagersingel",
+  "woonplaats": "Zeist",
+  "lat": 52.08796,
+  "lon": 5.26337
+ },
+ "Zeist|nijenheim": {
+  "straat": "Nijenheim",
+  "woonplaats": "Zeist",
+  "lat": 52.08621,
+  "lon": 5.22075
  },
  "Zeist|oude arnhemseweg": {
   "straat": "Oude Arnhemseweg",
@@ -84,6 +180,12 @@
   "lat": 52.0913,
   "lon": 5.2252
  },
+ "Zeist|van der merschlaan": {
+  "straat": "Van der Merschlaan",
+  "woonplaats": "Zeist",
+  "lat": 52.09595,
+  "lon": 5.23831
+ },
  "Zeist|verpleeghotel bovenwegen heideweg": {
   "straat": "Heideweg",
   "woonplaats": "Zeist",
@@ -97,11 +199,23 @@
   "lon": 5.31294
  },
  "Zeist|waterlooweg gramserweg": null,
+ "Zeist|wenshoek": {
+  "straat": "Wenshoek",
+  "woonplaats": "Zeist",
+  "lat": 52.0983,
+  "lon": 5.22526
+ },
  "Zeist|woudenbergseweg": {
   "straat": "Woudenbergseweg",
   "woonplaats": "Austerlitz",
   "lat": 52.0879,
   "lon": 5.30604
  },
- "Zeist|zeer hoog waterlooweg gramserweg": null
+ "Zeist|zeer hoog waterlooweg gramserweg": null,
+ "Zeist|zinzendorflaan": {
+  "straat": "Zinzendorflaan",
+  "woonplaats": "Zeist",
+  "lat": 52.07942,
+  "lon": 5.23522
+ }
 }

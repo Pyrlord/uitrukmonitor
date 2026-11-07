@@ -1,7 +1,426 @@
 {
- "bijgewerkt": "2026-10-14T13:15:31+00:00",
+ "bijgewerkt": "2026-11-07T12:18:07+00:00",
  "bron": "alarmeringen.nl",
  "meldingen": [
+  {
+   "id": "b6eb76a49570feb6",
+   "time": "2026-11-07T10:47:22+00:00",
+   "place": "Zeist",
+   "g": "Zeist",
+   "type": "Brand woning",
+   "prio": 1,
+   "street": "Van der Merschlaan",
+   "lat": 52.09595,
+   "lon": 5.23831,
+   "precisie": "straat",
+   "raw": "p 1 bmd-02 br woning dak van der merschlaan zeist 096652 096631",
+   "caps": [
+    "096652",
+    "096631"
+   ],
+   "ingetrokken": false,
+   "link": "https://alarmeringen.nl/utrecht/zeist/56067369/p2000-woningbrand-op-van-der-merschlaan-in-zeist.html"
+  },
+  {
+   "id": "65e1fb2e96c0342c",
+   "time": "2026-11-06T10:26:20+00:00",
+   "place": "Zeist",
+   "g": "Zeist",
+   "type": "Brandgerucht / rookmelding",
+   "prio": 2,
+   "street": "Wenshoek",
+   "lat": 52.0983,
+   "lon": 5.22526,
+   "precisie": "straat",
+   "raw": "p 2 bmd-01 brandgerucht detectie: algemeen chr. sanatorium loc. rintveld - wenshoek wenshoek zeist 096631",
+   "raw_all": [
+    "p 2 bmd-01 brandgerucht detectie: algemeen chr. sanatorium loc. rintveld - wenshoek wenshoek zeist 096631",
+    "p 3 intrekken alarm brw brandgerucht detectie: algemeen chr. sanatorium loc. rintveld - wenshoek wenshoek zeist"
+   ],
+   "caps": [
+    "096631"
+   ],
+   "ingetrokken": true,
+   "link": "https://alarmeringen.nl/utrecht/zeist/"
+  },
+  {
+   "id": "dea213fd01a74d95",
+   "time": "2026-11-05T11:23:35+00:00",
+   "place": "Zeist",
+   "g": "Zeist",
+   "type": "Reanimatie (assistentie)",
+   "prio": 1,
+   "street": "Jagersingel",
+   "lat": 52.08796,
+   "lon": 5.26337,
+   "precisie": "straat",
+   "raw": "p 1 bmd-04 reanimatie diakonessen zeist jagersingel zeist 096634",
+   "caps": [
+    "096634"
+   ],
+   "ingetrokken": false,
+   "link": "https://alarmeringen.nl/utrecht/zeist/56058577/p2000-assistentie-bij-reanimatie-op-jagersingel-in-zeist.html"
+  },
+  {
+   "id": "621f5a9cb03b47ad",
+   "time": "2026-11-05T11:10:26+00:00",
+   "place": "De Bilt",
+   "g": "De Bilt",
+   "type": "Gaslek / gevaarlijke stof",
+   "prio": 2,
+   "street": "De Holle Bilt",
+   "lat": 52.10453,
+   "lon": 5.19846,
+   "precisie": "straat",
+   "raw": "p 2 bmd-02 ongeval gev. stof gaslekkage buiten de holle bilt de bilt 096631 098591",
+   "caps": [
+    "096631",
+    "098591"
+   ],
+   "ingetrokken": false,
+   "link": "https://alarmeringen.nl/utrecht/de-bilt/"
+  },
+  {
+   "id": "a7bd0018d98dae1d",
+   "time": "2026-11-04T12:55:55+00:00",
+   "place": "Zeist",
+   "g": "Zeist",
+   "type": "Reanimatie (assistentie)",
+   "prio": 1,
+   "street": "Jagersingel",
+   "lat": 52.08796,
+   "lon": 5.26337,
+   "precisie": "straat",
+   "raw": "p 1 bmd-05 reanimatie diakonessen zeist jagersingel zeist 096631",
+   "caps": [
+    "096631"
+   ],
+   "ingetrokken": false,
+   "link": "https://alarmeringen.nl/utrecht/zeist/56054590/p2000-ambulance-met-spoed-naar-zeist.html"
+  },
+  {
+   "id": "9457fe48d4c3d6a2",
+   "time": "2026-11-03T17:21:14+00:00",
+   "place": "Zeist",
+   "g": "Zeist",
+   "type": "Brandgerucht / rookmelding",
+   "prio": 2,
+   "street": "Zinzendorflaan",
+   "lat": 52.07942,
+   "lon": 5.23522,
+   "precisie": "straat",
+   "raw": "p 2 bmd-01 brandgerucht detectie: algemeen slot zeist zinzendorflaan zeist 096631",
+   "caps": [
+    "096631"
+   ],
+   "ingetrokken": false,
+   "link": "https://alarmeringen.nl/utrecht/zeist/"
+  },
+  {
+   "id": "62f5d16defe681d4",
+   "time": "2026-11-03T14:58:52+00:00",
+   "place": "Zeist",
+   "g": "Zeist",
+   "type": "Assistentie ambulance/politie",
+   "prio": 2,
+   "street": "Nijenheim",
+   "lat": 52.08621,
+   "lon": 5.22075,
+   "precisie": "straat",
+   "raw": "p 2 bmd-02 ass. ambu afhijsen nijenheim zeist 096652 096631",
+   "caps": [
+    "096652",
+    "096631"
+   ],
+   "ingetrokken": false,
+   "link": "https://alarmeringen.nl/utrecht/zeist/"
+  },
+  {
+   "id": "4041a07b4c6a2786",
+   "time": "2026-11-03T08:37:39+00:00",
+   "place": "Bilthoven",
+   "g": "De Bilt",
+   "type": "Assistentie ambulance/politie",
+   "prio": 2,
+   "street": "Jan Provostlaan",
+   "lat": 52.13192,
+   "lon": 5.19457,
+   "precisie": "straat",
+   "raw": "p 2 bmd-02 ass. ambu afhijsen jan provostlaan bilthoven 096652 090731",
+   "caps": [
+    "096652",
+    "090731"
+   ],
+   "ingetrokken": false,
+   "link": "https://alarmeringen.nl/utrecht/bilthoven/"
+  },
+  {
+   "id": "66dfdf4396271921",
+   "time": "2026-11-02T20:23:52+00:00",
+   "place": "De Bilt",
+   "g": "De Bilt",
+   "type": "Assistentie ambulance/politie",
+   "prio": 2,
+   "street": "Akker",
+   "lat": 52.11015,
+   "lon": 5.18774,
+   "precisie": "straat",
+   "raw": "p 2 bmd-04 ass. ambu afhijsen akker de bilt 094852 090831",
+   "caps": [
+    "094852",
+    "090831"
+   ],
+   "ingetrokken": false,
+   "link": "https://alarmeringen.nl/utrecht/de-bilt/"
+  },
+  {
+   "id": "d42e410f6015361a",
+   "time": "2026-11-01T14:42:33+00:00",
+   "place": "De Bilt",
+   "g": "De Bilt",
+   "type": "Reanimatie (assistentie)",
+   "prio": 1,
+   "street": "De Holle Bilt",
+   "lat": 52.10453,
+   "lon": 5.19846,
+   "precisie": "straat",
+   "raw": "p 1 bmd-02 reanimatie van der valk hotel de bilt utrecht de holle bilt de bilt 096631",
+   "caps": [
+    "096631"
+   ],
+   "ingetrokken": false,
+   "link": "https://alarmeringen.nl/utrecht/de-bilt/56041768/p2000-assistentie-bij-reanimatie-op-de-holle-bilt-in-de-bilt.html"
+  },
+  {
+   "id": "030912ff0cc841bb",
+   "time": "2026-10-29T23:45:46+00:00",
+   "place": "Bilthoven",
+   "g": "De Bilt",
+   "type": "Brand woning",
+   "prio": 1,
+   "street": "Weegschaal",
+   "lat": 52.12269,
+   "lon": 5.18305,
+   "precisie": "straat",
+   "raw": "p 1 bmd-02 br woning weegschaal bilthoven 090731",
+   "caps": [
+    "090731"
+   ],
+   "ingetrokken": false,
+   "link": "https://alarmeringen.nl/utrecht/bilthoven/56030520/p2000-woningbrand-op-weegschaal-in-bilthoven.html"
+  },
+  {
+   "id": "d9ae2a1bb2d43aa2",
+   "time": "2026-10-29T05:35:05+00:00",
+   "place": "Groenekan",
+   "g": "De Bilt",
+   "type": "Brand gebouw",
+   "prio": 1,
+   "street": "Nieuwe Weteringseweg",
+   "lat": 52.13962,
+   "lon": 5.16868,
+   "precisie": "straat",
+   "raw": "p 2 bmd-01 br gebouw nieuwe weteringseweg groenekan 099388",
+   "raw_all": [
+    "p 2 bmd-01 br gebouw nieuwe weteringseweg groenekan 099388",
+    "p 1 bmd-01 br gebouw nieuwe weteringseweg groenekan 091034"
+   ],
+   "caps": [
+    "091034",
+    "099388"
+   ],
+   "ingetrokken": false,
+   "link": "https://alarmeringen.nl/utrecht/groenekan/56026158/p2000-gebouwbrand-op-nieuwe-weteringseweg-in-groenekan.html"
+  },
+  {
+   "id": "ed54150c2904226b",
+   "time": "2026-10-29T05:34:33+00:00",
+   "place": "Bilthoven",
+   "g": "De Bilt",
+   "type": "Liftopsluiting",
+   "prio": 2,
+   "street": "Melkweg",
+   "lat": 52.12184,
+   "lon": 5.18518,
+   "precisie": "straat",
+   "raw": "p 2 bmd-02 liftopsluiting melkweg bilthoven 090731",
+   "caps": [
+    "090731"
+   ],
+   "ingetrokken": false,
+   "link": "https://alarmeringen.nl/utrecht/bilthoven/"
+  },
+  {
+   "id": "383b756ecd52f297",
+   "time": "2026-10-28T21:59:37+00:00",
+   "place": "Bilthoven",
+   "g": "De Bilt",
+   "type": "Brand voertuig",
+   "prio": 1,
+   "street": "Neptunuslaan",
+   "lat": 52.119,
+   "lon": 5.1834,
+   "precisie": "straat",
+   "raw": "p 1 bmd-03 br wegvervoer auto jumbo - bilthoven neptunuslaan bilthoven 090831",
+   "caps": [
+    "090831"
+   ],
+   "ingetrokken": false,
+   "link": "https://alarmeringen.nl/utrecht/bilthoven/56025674/p2000-voertuigbrand-op-neptunuslaan-in-bilthoven.html"
+  },
+  {
+   "id": "91f33094e423ba7b",
+   "time": "2026-10-28T21:51:42+00:00",
+   "place": "Bilthoven",
+   "g": "De Bilt",
+   "type": "Brand voertuig",
+   "prio": 1,
+   "street": "Planetenbaan",
+   "lat": 52.11888,
+   "lon": 5.18211,
+   "precisie": "straat",
+   "raw": "p 1 bmd-02 br wegvervoer auto planetenbaan bilthoven 090731",
+   "caps": [
+    "090731"
+   ],
+   "ingetrokken": false,
+   "link": "https://alarmeringen.nl/utrecht/bilthoven/56025655/p2000-voertuigbrand-op-planetenbaan-in-bilthoven.html"
+  },
+  {
+   "id": "5be7b5e24b513325",
+   "time": "2026-10-28T12:03:12+00:00",
+   "place": "De Bilt",
+   "g": "De Bilt",
+   "type": "Assistentie ambulance/politie",
+   "prio": 2,
+   "street": "Utrechtseweg",
+   "lat": 52.10256,
+   "lon": 5.18399,
+   "precisie": "straat",
+   "raw": "p 2 bmd-01 ass. ambu afhijsen utrechtseweg de bilt 096652 096631",
+   "caps": [
+    "096652",
+    "096631"
+   ],
+   "ingetrokken": false,
+   "link": "https://alarmeringen.nl/utrecht/de-bilt/"
+  },
+  {
+   "id": "b47bfb1746a7e903",
+   "time": "2026-10-24T22:10:18+00:00",
+   "place": "Bilthoven",
+   "g": "De Bilt",
+   "type": "Storm- of waterschade",
+   "prio": 2,
+   "street": "Kees Boekelaan",
+   "lat": 52.13474,
+   "lon": 5.19644,
+   "precisie": "straat",
+   "raw": "p 2 bmd-08 stormschade kees boekelaan bilthoven 090731",
+   "caps": [
+    "090731"
+   ],
+   "ingetrokken": false,
+   "link": "https://alarmeringen.nl/utrecht/bilthoven/"
+  },
+  {
+   "id": "f935e151fd90e35f",
+   "time": "2026-10-24T16:47:46+00:00",
+   "place": "Maartensdijk",
+   "g": "De Bilt",
+   "type": "Nacontrole",
+   "prio": 1,
+   "street": "Dorpsweg",
+   "lat": 52.15822,
+   "lon": 5.18228,
+   "precisie": "straat",
+   "raw": "p 1 bmd-01 nacontrole dorpsweg maartensdijk 091034",
+   "raw_all": [
+    "p 1 bmd-01 nacontrole dorpsweg maartensdijk 091034",
+    "p 1 bmd-01 nacontrole dorpsweg maartensdijk 098591"
+   ],
+   "caps": [
+    "091034",
+    "098591"
+   ],
+   "ingetrokken": false,
+   "link": "https://alarmeringen.nl/utrecht/maartensdijk/"
+  },
+  {
+   "id": "e3f7b385ca70da9d",
+   "time": "2026-10-21T06:40:18+00:00",
+   "place": "Maartensdijk",
+   "g": "De Bilt",
+   "type": "Storm- of waterschade",
+   "prio": 1,
+   "street": "Achterweteringseweg",
+   "lat": 52.1505,
+   "lon": 5.15258,
+   "precisie": "straat",
+   "raw": "p 1 bmd-05 persoon te water achterweteringseweg maartensdijk 094411 098591 091034",
+   "caps": [
+    "094411",
+    "098591",
+    "091034"
+   ],
+   "ingetrokken": false,
+   "link": "https://alarmeringen.nl/utrecht/maartensdijk/55989718/p2000-ambulance-naar-achterweteringseweg-in-maartensdijk-voor-persoon-te-water.html"
+  },
+  {
+   "id": "9b1a7c1b1051a9a8",
+   "time": "2026-10-19T22:09:25+00:00",
+   "place": "Westbroek",
+   "g": "De Bilt",
+   "type": "Reanimatie (assistentie)",
+   "prio": 1,
+   "street": "Achterweteringseweg",
+   "lat": 52.1505,
+   "lon": 5.15258,
+   "precisie": "straat",
+   "raw": "p 1 bmd-01 reanimatie achterweteringseweg westbroek 091034",
+   "caps": [
+    "091034"
+   ],
+   "ingetrokken": false,
+   "link": "https://alarmeringen.nl/utrecht/westbroek/55984240/p2000-assistentie-bij-reanimatie-in-westbroek.html"
+  },
+  {
+   "id": "dbea0656e9825034",
+   "time": "2026-10-19T10:25:03+00:00",
+   "place": "Groenekan",
+   "g": "De Bilt",
+   "type": "Gaslek / gevaarlijke stof",
+   "prio": 2,
+   "street": "Copijnlaan",
+   "lat": 52.12256,
+   "lon": 5.14929,
+   "precisie": "straat",
+   "raw": "p 2 bmd-01 ongeval gev. stof gaslekkage buiten copijnlaan groenekan 090931 098591",
+   "caps": [
+    "090931",
+    "098591"
+   ],
+   "ingetrokken": false,
+   "link": "https://alarmeringen.nl/utrecht/groenekan/"
+  },
+  {
+   "id": "96ae81820f827a5b",
+   "time": "2026-10-16T07:55:22+00:00",
+   "place": "Austerlitz",
+   "g": "Zeist",
+   "type": "Nacontrole",
+   "prio": 2,
+   "street": "Grensweg",
+   "lat": 52.08484,
+   "lon": 5.30103,
+   "precisie": "straat",
+   "raw": "p 2 bmd-02 nacontrole grensweg austerlitz 096644",
+   "caps": [
+    "096644"
+   ],
+   "ingetrokken": false,
+   "link": "https://alarmeringen.nl/utrecht/austerlitz/"
+  },
   {
    "id": "d5222b88e6dd5230",
    "time": "2026-10-14T09:43:57+00:00",

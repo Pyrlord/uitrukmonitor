@@ -1,6 +1,206 @@
 {
  "berichten": [
   {
+   "tekst": "p 1 bmd-02 br woning dak van der merschlaan zeist 096652 096631",
+   "omschrijving": "Woningbrand op Van der Merschlaan in Zeist",
+   "tijd": "2026-11-07T10:47:22+00:00",
+   "feed": "Zeist",
+   "link": "https://alarmeringen.nl/utrecht/zeist/56067369/p2000-woningbrand-op-van-der-merschlaan-in-zeist.html",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 3 intrekken alarm brw brandgerucht detectie: algemeen chr. sanatorium loc. rintveld - wenshoek wenshoek zeist",
+   "omschrijving": "Brandgerucht op Wenshoek in Zeist",
+   "tijd": "2026-11-06T10:28:07+00:00",
+   "feed": "Zeist",
+   "link": "https://alarmeringen.nl/utrecht/zeist/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 2 bmd-01 brandgerucht detectie: algemeen chr. sanatorium loc. rintveld - wenshoek wenshoek zeist 096631",
+   "omschrijving": "Brandgerucht op Wenshoek in Zeist",
+   "tijd": "2026-11-06T10:26:20+00:00",
+   "feed": "Zeist",
+   "link": "https://alarmeringen.nl/utrecht/zeist/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 1 bmd-04 reanimatie diakonessen zeist jagersingel zeist 096634",
+   "omschrijving": "Assistentie bij reanimatie op Jagersingel in Zeist",
+   "tijd": "2026-11-05T11:23:35+00:00",
+   "feed": "Zeist",
+   "link": "https://alarmeringen.nl/utrecht/zeist/56058577/p2000-assistentie-bij-reanimatie-op-jagersingel-in-zeist.html",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 2 bmd-02 ongeval gev. stof gaslekkage buiten de holle bilt de bilt 096631 098591",
+   "omschrijving": "Gaslek op De Holle Bilt in De Bilt",
+   "tijd": "2026-11-05T11:10:26+00:00",
+   "feed": "De Bilt",
+   "link": "https://alarmeringen.nl/utrecht/de-bilt/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 1 bmd-05 reanimatie diakonessen zeist jagersingel zeist 096631",
+   "omschrijving": "Assistentie bij reanimatie op Jagersingel in Zeist",
+   "tijd": "2026-11-04T12:55:55+00:00",
+   "feed": "Zeist",
+   "link": "https://alarmeringen.nl/utrecht/zeist/56054590/p2000-ambulance-met-spoed-naar-zeist.html",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 2 bmd-01 brandgerucht detectie: algemeen slot zeist zinzendorflaan zeist 096631",
+   "omschrijving": "Brandgerucht op Zinzendorflaan in Zeist",
+   "tijd": "2026-11-03T17:21:14+00:00",
+   "feed": "Zeist",
+   "link": "https://alarmeringen.nl/utrecht/zeist/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 2 bmd-02 ass. ambu afhijsen nijenheim zeist 096652 096631",
+   "omschrijving": "Assistentie ambulance voor afhijsen patiënt op Nijenheim in Zeist",
+   "tijd": "2026-11-03T14:58:52+00:00",
+   "feed": "Zeist",
+   "link": "https://alarmeringen.nl/utrecht/zeist/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 2 bmd-02 ass. ambu afhijsen jan provostlaan bilthoven 096652 090731",
+   "omschrijving": "Assistentie ambulance voor afhijsen patiënt op Jan Provostlaan in Bilthoven",
+   "tijd": "2026-11-03T08:37:39+00:00",
+   "feed": "Bilthoven",
+   "link": "https://alarmeringen.nl/utrecht/bilthoven/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 2 bmd-04 ass. ambu afhijsen akker de bilt 094852 090831",
+   "omschrijving": "Assistentie ambulance voor afhijsen patiënt op Akker in De Bilt",
+   "tijd": "2026-11-02T20:23:52+00:00",
+   "feed": "De Bilt",
+   "link": "https://alarmeringen.nl/utrecht/de-bilt/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 1 bmd-02 reanimatie van der valk hotel de bilt utrecht de holle bilt de bilt 096631",
+   "omschrijving": "Assistentie bij reanimatie op De Holle Bilt in De Bilt",
+   "tijd": "2026-11-01T14:42:33+00:00",
+   "feed": "De Bilt",
+   "link": "https://alarmeringen.nl/utrecht/de-bilt/56041768/p2000-assistentie-bij-reanimatie-op-de-holle-bilt-in-de-bilt.html",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 1 bmd-02 br woning weegschaal bilthoven 090731",
+   "omschrijving": "Woningbrand op Weegschaal in Bilthoven",
+   "tijd": "2026-10-29T23:45:46+00:00",
+   "feed": "Bilthoven",
+   "link": "https://alarmeringen.nl/utrecht/bilthoven/56030520/p2000-woningbrand-op-weegschaal-in-bilthoven.html",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 2 bmd-01 br gebouw nieuwe weteringseweg groenekan 099388",
+   "omschrijving": "Gebouwbrand op Nieuwe Weteringseweg in Groenekan",
+   "tijd": "2026-10-29T05:35:05+00:00",
+   "feed": "Groenekan",
+   "link": "https://alarmeringen.nl/utrecht/groenekan/56026158/p2000-gebouwbrand-op-nieuwe-weteringseweg-in-groenekan.html",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 1 bmd-01 br gebouw nieuwe weteringseweg groenekan 091034",
+   "omschrijving": "Gebouwbrand op Nieuwe Weteringseweg in Groenekan",
+   "tijd": "2026-10-29T05:35:05+00:00",
+   "feed": "Groenekan",
+   "link": "https://alarmeringen.nl/utrecht/groenekan/56026158/p2000-gebouwbrand-op-nieuwe-weteringseweg-in-groenekan.html",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 2 bmd-02 liftopsluiting melkweg bilthoven 090731",
+   "omschrijving": "Assistentie bij liftopsluiting op Melkweg in Bilthoven",
+   "tijd": "2026-10-29T05:34:33+00:00",
+   "feed": "Bilthoven",
+   "link": "https://alarmeringen.nl/utrecht/bilthoven/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 1 bmd-03 br wegvervoer auto jumbo - bilthoven neptunuslaan bilthoven 090831",
+   "omschrijving": "Voertuigbrand op Neptunuslaan in Bilthoven",
+   "tijd": "2026-10-28T21:59:37+00:00",
+   "feed": "Bilthoven",
+   "link": "https://alarmeringen.nl/utrecht/bilthoven/56025674/p2000-voertuigbrand-op-neptunuslaan-in-bilthoven.html",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 1 bmd-02 br wegvervoer auto planetenbaan bilthoven 090731",
+   "omschrijving": "Voertuigbrand op Planetenbaan in Bilthoven",
+   "tijd": "2026-10-28T21:51:42+00:00",
+   "feed": "Bilthoven",
+   "link": "https://alarmeringen.nl/utrecht/bilthoven/56025655/p2000-voertuigbrand-op-planetenbaan-in-bilthoven.html",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 2 bmd-01 ass. ambu afhijsen utrechtseweg de bilt 096652 096631",
+   "omschrijving": "Assistentie ambulance voor afhijsen patiënt op Utrechtseweg in De Bilt",
+   "tijd": "2026-10-28T12:03:12+00:00",
+   "feed": "De Bilt",
+   "link": "https://alarmeringen.nl/utrecht/de-bilt/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 2 bmd-08 stormschade kees boekelaan bilthoven 090731",
+   "omschrijving": "Stormschade op Kees Boekelaan in Bilthoven",
+   "tijd": "2026-10-24T22:10:18+00:00",
+   "feed": "Bilthoven",
+   "link": "https://alarmeringen.nl/utrecht/bilthoven/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 1 bmd-01 nacontrole dorpsweg maartensdijk 098591",
+   "omschrijving": "Nacontrole op Dorpsweg in Maartensdijk",
+   "tijd": "2026-10-24T16:51:40+00:00",
+   "feed": "Maartensdijk",
+   "link": "https://alarmeringen.nl/utrecht/maartensdijk/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 1 bmd-01 nacontrole dorpsweg maartensdijk 091034",
+   "omschrijving": "Nacontrole op Dorpsweg in Maartensdijk",
+   "tijd": "2026-10-24T16:47:46+00:00",
+   "feed": "Maartensdijk",
+   "link": "https://alarmeringen.nl/utrecht/maartensdijk/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 1 bmd-05 persoon te water achterweteringseweg maartensdijk 094411 098591 091034",
+   "omschrijving": "Persoon te water op Achterweteringseweg in Maartensdijk",
+   "tijd": "2026-10-21T06:40:18+00:00",
+   "feed": "Maartensdijk",
+   "link": "https://alarmeringen.nl/utrecht/maartensdijk/55989718/p2000-ambulance-naar-achterweteringseweg-in-maartensdijk-voor-persoon-te-water.html",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 1 bmd-01 reanimatie achterweteringseweg westbroek 091034",
+   "omschrijving": "Assistentie bij reanimatie in Westbroek",
+   "tijd": "2026-10-19T22:09:25+00:00",
+   "feed": "Westbroek",
+   "link": "https://alarmeringen.nl/utrecht/westbroek/55984240/p2000-assistentie-bij-reanimatie-in-westbroek.html",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 2 bmd-01 ongeval gev. stof gaslekkage buiten copijnlaan groenekan 090931 098591",
+   "omschrijving": "Gaslek op Copijnlaan in Groenekan",
+   "tijd": "2026-10-19T10:25:03+00:00",
+   "feed": "Groenekan",
+   "link": "https://alarmeringen.nl/utrecht/groenekan/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 2 bmd-02 nacontrole grensweg austerlitz 096644",
+   "omschrijving": "Nacontrole in Austerlitz",
+   "tijd": "2026-10-16T07:55:22+00:00",
+   "feed": "Austerlitz",
+   "link": "https://alarmeringen.nl/utrecht/austerlitz/",
+   "bron": "rss"
+  },
+  {
    "tekst": "p 1 bmd-02 ass. ambu de clomp zeist 096631",
    "omschrijving": "Brandweer met spoed naar De Clomp in Zeist",
    "tijd": "2026-10-14T09:43:57+00:00",
