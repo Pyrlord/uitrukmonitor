@@ -1,6 +1,54 @@
 {
  "berichten": [
   {
+   "tekst": "p 2 bmd-08 br container wilhelminapark zeist 095131",
+   "omschrijving": "Buitenbrand (container) in Zeist",
+   "tijd": "2026-11-07T18:29:07+00:00",
+   "feed": "Zeist",
+   "link": "https://alarmeringen.nl/utrecht/zeist/",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 2 bmd-03 middel br br wegvervoer auto nijenheim zeist 099388",
+   "omschrijving": "Voertuigbrand op Nijenheim in Zeist",
+   "tijd": "2026-11-07T17:54:56+00:00",
+   "feed": "Zeist",
+   "link": "https://alarmeringen.nl/utrecht/zeist/56068885/p2000-voertuigbrand-op-nijenheim-in-zeist.html",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 1 bmd-03 br wegvervoer auto nijenheim zeist 096631",
+   "omschrijving": "Voertuigbrand op Nijenheim in Zeist",
+   "tijd": "2026-11-07T17:54:56+00:00",
+   "feed": "Zeist",
+   "link": "https://alarmeringen.nl/utrecht/zeist/56068885/p2000-voertuigbrand-op-nijenheim-in-zeist.html",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 1 bmd-03 middel br br wegvervoer auto nijenheim zeist 094831",
+   "omschrijving": "Voertuigbrand op Nijenheim in Zeist",
+   "tijd": "2026-11-07T17:38:46+00:00",
+   "feed": "Zeist",
+   "link": "https://alarmeringen.nl/utrecht/zeist/56068885/p2000-voertuigbrand-op-nijenheim-in-zeist.html",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 1 bmd-03 middel br br wegvervoer auto nijenheim zeist 096652",
+   "omschrijving": "Voertuigbrand op Nijenheim in Zeist",
+   "tijd": "2026-11-07T17:37:48+00:00",
+   "feed": "Zeist",
+   "link": "https://alarmeringen.nl/utrecht/zeist/56068885/p2000-voertuigbrand-op-nijenheim-in-zeist.html",
+   "bron": "rss"
+  },
+  {
+   "tekst": "p 1 bmd-03 middel br br wegvervoer auto nijenheim zeist 090531 098091",
+   "omschrijving": "Voertuigbrand op Nijenheim in Zeist",
+   "tijd": "2026-11-07T17:37:14+00:00",
+   "feed": "Zeist",
+   "link": "https://alarmeringen.nl/utrecht/zeist/56068885/p2000-voertuigbrand-op-nijenheim-in-zeist.html",
+   "bron": "rss"
+  },
+  {
    "tekst": "p 1 bmd-02 br woning dak van der merschlaan zeist 096652 096631",
    "omschrijving": "Woningbrand op Van der Merschlaan in Zeist",
    "tijd": "2026-11-07T10:47:22+00:00",

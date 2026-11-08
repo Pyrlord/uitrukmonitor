@@ -1,7 +1,55 @@
 {
- "bijgewerkt": "2026-11-07T12:18:07+00:00",
+ "bijgewerkt": "2026-11-08T08:18:04+00:00",
  "bron": "alarmeringen.nl",
  "meldingen": [
+  {
+   "id": "6d3acf37aafcbf2a",
+   "time": "2026-11-07T18:29:07+00:00",
+   "place": "Zeist",
+   "g": "Zeist",
+   "type": "Buitenbrand",
+   "prio": 2,
+   "street": "Wilhelminapark",
+   "lat": 52.0895,
+   "lon": 5.233,
+   "precisie": "plaats",
+   "raw": "p 2 bmd-08 br container wilhelminapark zeist 095131",
+   "caps": [
+    "095131"
+   ],
+   "ingetrokken": false,
+   "link": "https://alarmeringen.nl/utrecht/zeist/"
+  },
+  {
+   "id": "1955c0cb4f8f2392",
+   "time": "2026-11-07T17:37:14+00:00",
+   "place": "Zeist",
+   "g": "Zeist",
+   "type": "Brand voertuig",
+   "prio": 1,
+   "street": "Nijenheim",
+   "lat": 52.08621,
+   "lon": 5.22075,
+   "precisie": "straat",
+   "raw": "p 1 bmd-03 middel br br wegvervoer auto nijenheim zeist 090531 098091",
+   "raw_all": [
+    "p 1 bmd-03 middel br br wegvervoer auto nijenheim zeist 090531 098091",
+    "p 1 bmd-03 middel br br wegvervoer auto nijenheim zeist 096652",
+    "p 1 bmd-03 middel br br wegvervoer auto nijenheim zeist 094831",
+    "p 2 bmd-03 middel br br wegvervoer auto nijenheim zeist 099388",
+    "p 1 bmd-03 br wegvervoer auto nijenheim zeist 096631"
+   ],
+   "caps": [
+    "090531",
+    "094831",
+    "096631",
+    "096652",
+    "098091",
+    "099388"
+   ],
+   "ingetrokken": false,
+   "link": "https://alarmeringen.nl/utrecht/zeist/56068885/p2000-voertuigbrand-op-nijenheim-in-zeist.html"
+  },
   {
    "id": "b6eb76a49570feb6",
    "time": "2026-11-07T10:47:22+00:00",
